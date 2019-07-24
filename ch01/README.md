@@ -2,8 +2,8 @@
 ## Exercise 1.1
 > Write a program to solve the selection problem. Let k = n/2. Draw a table showing the running time of your program for various values of n.
 
-[Algorithm-1]()  
-[Algorithm-2]()
+[Algorithm-1](https://github.com/seineo/Solutions-for-Data-Structures-and-Algorithm-Analysis-in-C-2th-exercises/blob/master/ch01/ex1_01_algorithm-1.cpp)  
+[Algorithm-2](https://github.com/seineo/Solutions-for-Data-Structures-and-Algorithm-Analysis-in-C-2th-exercises/blob/master/ch01/ex1_01_algorithm-2.cpp)
 
 |   |100|1000|10000|100000|
 |---|---|----|-----|------|

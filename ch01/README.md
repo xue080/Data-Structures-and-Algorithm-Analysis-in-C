@@ -15,4 +15,4 @@ Obviously, when the number of elements are large, the running time of algorithm-
 ## Exercise 1.2
 >Write a program to solve the word puzzle problem.
 
-[Code]()
+[Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch01/ex1_02.cpp)

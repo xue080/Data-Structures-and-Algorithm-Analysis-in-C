@@ -13,6 +13,26 @@
 Obviously, when the number of elements are large, the running time of algorithm-2 is much shorter than that of algorithm-1.
 
 ## Exercise 1.2
->Write a program to solve the word puzzle problem.
+> Write a program to solve the word puzzle problem.
 
 [Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch01/ex1_02.cpp)
+
+## Exercise 1.3
+> Write a procedure to output an arbitrary real number (which might be
+negative) using only print_digit for I/O.
+
+[Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch01/ex1_03.cpp)
+
+## Exercise 1.4
+> C allows statements of the form
+#include filename
+which reads filename and inserts its contents in place of the include statement.
+Include statements may be nested; in other words, the file filename may itself
+contain an include statement, but, obviously, a file can't include itself in any
+chain. Write a program that reads in a file and outputs the file as modified by
+the include statements.
+
+[Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch01/ex1_04.cpp)
+
+## Exercise 1.5 ~ 1.10
+Omitted.(Because formulas are hard to write down here.)

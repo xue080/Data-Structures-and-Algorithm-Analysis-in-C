@@ -11,8 +11,11 @@ c. False. Counterexample: T1(N) = N2(the square of N), T2(N) = N, so T1(N)/T2(N)
 
 d. False. Counterexample: T1(N) = N2(the square of N), T2(N) = N, so T1(N) = O(N2) instead of O(T2(N))
 
-## Exercise 2.3 ~ 2.5
+## Exercise 2.3 ~ 2.4
 Omitted(Because formulas are hard to write down here).
+
+## Exercise 2.5
+Let f(N) = 1 when N is even, and N when N is odd. Likewise, let g(N) = 1 when N is odd, and N when N is even. Then the ratio f(N)/g(N) oscillates between 0 and ∞. (`The limit oscillates: There is no relation`)
 
 ## Exercise 2.6
 

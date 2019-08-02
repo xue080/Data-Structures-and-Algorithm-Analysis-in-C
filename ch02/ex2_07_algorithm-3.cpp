@@ -29,7 +29,6 @@ int main()
 	int N;
 	cin >> N;
 	vector<int> A;
-	vector<int> Used(N + 5);
 	for(int i = 0;i != N;++i)
 		A.push_back(i+1);
 	for(int i = 1; i != N;++i)

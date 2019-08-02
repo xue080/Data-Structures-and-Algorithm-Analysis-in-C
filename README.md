@@ -1,10 +1,11 @@
 # Solutions-for-Data-Structures-and-Algorithm-Analysis-in-C-2th-exercises
 ## Notes
-* Finished in C/C++.
+* Finished in C++.
 * Use IDE : `Visual Studio 2017 Community`.
 * Use `gcc version 6.3.0`(MinGW.org GCC-6.3.0-1).
 * Use `-std=c++11`(recommend: `-pedantic -Wall`) flag for compiling.
 * Solutions for mathematical exercises were `omitted`(Because formulas are hard to write down here).
+* I would like to know about `errors in these files`
 ## Contents
 * [Chapter 1: Introduction](https://github.com/seineo/Solutions-for-Data-Structures-and-Algorithm-Analysis-in-C-2th-exercises/blob/master/ch01/README.md)
 * [Chapter 2: Algorithm Analysis](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/README.md)

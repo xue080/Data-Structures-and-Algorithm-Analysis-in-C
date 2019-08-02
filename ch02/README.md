@@ -66,7 +66,19 @@ by the analysis.
 
 ## Exercise 2.7
 
+**a. Prove** 
 
+Obviously, all algorithms generate legal permutations. The first two algorithms test on no duplicates, and the third one guarantees that by shuffling an array that initially has no duplicates. It is also clear that each permutation is equally likely.
+
+**b.Analysis of the Running Time**  
+
+Algorithm-1 : O(N2logN) (N2logN -> N * N * logN)  
+Algorithm-2 : O(NlogN)    
+Algorithm-3 : O(N)
+   
+**c.Execute Programs** 
+
+Code: [Algorithm-1](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_07_algorithm-1.cpp)    [Algorithm-2](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_07_algorithm-2.cpp)    [Algorithm-3](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_07_algorithm-3.cpp)
 
 
 

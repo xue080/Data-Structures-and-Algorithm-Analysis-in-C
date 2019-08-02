@@ -1,7 +1,7 @@
 # Solutions-for-Data-Structures-and-Algorithm-Analysis-in-C-2th-exercises
 ## Notes
 * Finished in C++.
-* Use IDE : `Visual Studio 2017 Community`.
+* Use IDE : `Visual Studio 2017 Community` / text editor : `Sublime Text 3`.
 * Use `gcc version 6.3.0`(MinGW.org GCC-6.3.0-1).
 * Use `-std=c++11`(recommend: `-pedantic -Wall`) flag for compiling.
 * Solutions for mathematical exercises were `omitted`(Because formulas are hard to write down here).

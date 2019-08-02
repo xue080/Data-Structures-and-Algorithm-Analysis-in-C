@@ -5,16 +5,9 @@
 #include<vector>
 using namespace std;
 
-int main()
+int MinSubSequenceSum(const vector<int>& v,int N)
 {
-	int N,num;
 	int ThisSum = 0,MinSum = 99999999;
-	vector<int> v;
-	cin >> N;
-	for(int i = 0;i != N;++i) {
-		cin >> num;
-		v.push_back(num);
-	}
 	for(int i = 0;i != N;++i) {
 		ThisSum += v[i];
 		if(ThisSum < MinSum)
@@ -22,6 +15,18 @@ int main()
 		if(ThisSum > 0)
 			ThisSum = 0;
 	}
-	cout << MinSum << endl;
+	return MinSum;
+}
+
+int main()
+{
+	int N,num;
+	vector<int> v;
+	cin >> N;
+	for(int i = 0;i != N;++i) {
+		cin >> num;
+		v.push_back(num);
+	}
+	cout << MinSubSequenceSum(v,N) << endl;
 	return 0;
 }

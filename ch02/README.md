@@ -20,12 +20,12 @@ Let f(N) = 1 when N is even, and N when N is odd. Likewise, let g(N) = 1 when N 
 ## Exercise 2.6
 
 **a.Analysis of the running time**  
-(1) The Running Time : O(N)   
-(2) The Running Time : O(N^2)     
-(3) The Running Time : O(N^3)    
-(4) The Running Time : O(N^2)   (Because j can be as large as N)  
-(5) The Running Time : O(N^5)   (Because j can be as large as i * i, which can be as large as N^2. k can be as large as j, which is N^2)  
-(6) The Running Time : O(N^4)   (j can be as large as N^2, so the if statement is executed at most O(N^3) times, but the condition is true only O(N^2) times,only i times for each i)
+(1) The running time : O(N)   
+(2) The running time : O(N^2)     
+(3) The running time : O(N^3)    
+(4) The running time : O(N^2)   (Because j can be as large as N)  
+(5) The running time : O(N^5)   (Because j can be as large as i * i, which can be as large as N^2. k can be as large as j, which is N^2)  
+(6) The running time : O(N^4)   (j can be as large as N^2, so the if statement is executed at most O(N^3) times, but the condition is true only O(N^2) times,only i times for each i)
 
 **b.The running time for several values of N**(Forms are as follows)  
 
@@ -63,7 +63,7 @@ by the analysis.
 Obviously, all algorithms generate legal permutations. The first two algorithms test on no duplicates, and the third one guarantees that by shuffling an array that initially has no duplicates. It is also clear that each permutation is equally likely.
 
 **b.Analysis of the running time**  
-Algorithm-1 : O(N^2logN) 
+Algorithm-1 : O(N^2logN)  
 Algorithm-2 : O(NlogN)    
 Algorithm-3 : O(N)
    
@@ -126,9 +126,29 @@ O(N)
 ## Exercise 2.11
 
 Algorithm : [Binary Search](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_11_binary-search.cpp)  
-Running time : O(logN)
+The running time : O(logN)
 
 ## Exercise 2.12
 
 **a.find the minimum subsequence sum**  
 Algorithm : [a-algorithm](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_12_a-algorithm.cpp)  
+The running time : O(N)  
+Analysis : Just like the routine `Figure 2.8 Algorithm 4` in Section 2.4.3 
+
+**b.find the minimum positive subsequence sum**  
+Algorithm : [b-algorithm](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_12_b-algorithm.cpp)  
+The running time : O(NlogN)  
+Analysis :  
+1. The algorithm is based on the principle that each subsequence([i,j]) sum is equal to sum[j] - sum[i] (sum[x] -> from index 0 add up to index x)  
+2. Why we can just compare the neighbouring two items(data[i] and data[i-1])?   
+For example, a sequence after sorting -> A B C. Then its value order : A < B < C. if B and C can't be a subsequence, it means index of C < index of B. We don't need to try A and C anymore, because if A and C can, index of A < index of C. It turns out that A and B also can be a subsequence(index of A < index of C < index of B).  C - A > B - A, so the sequence sum of A and C is larger than that of A and B. In conclusion, we just need to compare the neighbouring two items.
+
+**c.find the maximum subsequence product**  
+Algorithm : [c-algorithm](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_12_c-algorithm.cpp)  
+The running time : O(N)  
+Analysis : The algorithm is based on the principle that each maximum product is only associated with the the minimum/maximum of the previous value. 
+
+## Exercise 2.13 
+
+**a.Program**  
+[Code]()

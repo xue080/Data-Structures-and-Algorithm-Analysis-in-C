@@ -7,7 +7,7 @@ using namespace std;
 
 int MinSubSequenceSum(const vector<int>& v,int N)
 {
-	int ThisSum = 0,MinSum = 99999999;
+	int ThisSum = 0,MinSum = INT_MAX;
 	for(int i = 0;i != N;++i) {
 		ThisSum += v[i];
 		if(ThisSum < MinSum)

@@ -151,4 +151,59 @@ Analysis : The algorithm is based on the principle that each maximum product is 
 ## Exercise 2.13 
 
 **a.Program**  
-[Code]()
+[Code](https://github.com/seineo/eData-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_13_judge-prime.cpp)
+
+**b.The worst-case running time(N)**  
+O(N^(1/2)) 
+
+**c.the value of B**  
+B = O(logN)
+
+**d..The worst-case running time(B)**  
+O(N^(B/2))
+
+**e.Compare the running times**  
+20-bit : 0.001  
+40-bit : 0.002
+
+**f.N or B?**  
+I think B is better because it shows the actual space the data takes up.
+
+## Exercise 2.14
+
+Algorithm : [The Sieve of Erastothenes](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_14_Eratosthenes.cpp)  
+The running time : O(NloglogN)
+
+## Exercise 2.15
+
+(1)X * X -> (2)X^2 * X^2 -> (3)X^4 * X^4 -> (4)X^8 * X^2 -> (5) X^10 * X^10 -> (6) x^20 * x^20 -> (7)X^40 * X^20 ->  
+(8)X^60 * X^2
+
+## Exercise 2.16
+
+[Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_16_exponentiation.cpp)  
+Analysis : The algorithm is based on the following principle.  
+The binary carry mechanism is two in one, so each high order digit is twice the low order digit. When placed on the index, twice is square. For example, 2^5 = 2^(101) so there are one 2^1 and zero 2^2 and one 2^4. 
+## Exercise 2.17
+ 
+ If N = 0 or N = 1, the number is zero.  
+Let b(N) is the number of ones in the binary representation of N, if N > 1, the number is [log(N)] + b(N) - 1
+
+## Exercise 2.18
+
+a. A  
+b. B  
+c. We can't determine the answer because only worst-case running times are given.  
+d. No
+
+## Exercise 2.19
+
+a. It should terminate when the length of A <= 2.  
+b. If the first N - 1 elements have a candidate, then the last one doesn't make a difference. Otherwise, the last element may be the majority, so let it be the candidate.  
+c. O(N)  
+d. Save a copy of A and place the elements of B in A.  
+e. [Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_19_find-candidate.cpp)
+
+## Exercise 2.20
+
+If integers don't have fixed size, we can perform many operations at the same time by playing tricks. For example we can add A and B at the same time as C and D by adding 0A0C and 0B0D. We can extend this to add N pairs of numbers at once in unit cost, which prevent our analysis of the running time.

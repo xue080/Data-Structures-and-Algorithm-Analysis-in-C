@@ -1,4 +1,4 @@
-# Solutions-for-Data-Structures-and-Algorithm-Analysis-in-C-2th-exercises
+# Solutions to Exercises
 ## Notes
 * Finished in C++.
 * Use IDE : `Visual Studio 2017 Community` / text editor : `Sublime Text 3`.

@@ -159,7 +159,7 @@ O(N^(1/2))
 **c.the value of B**  
 B = O(logN)
 
-**d..The worst-case running time(B)**  
+**d.The worst-case running time(B)**  
 O(N^(B/2))
 
 **e.Compare the running times**  
@@ -199,7 +199,7 @@ d. No
 ## Exercise 2.19
 
 a. It should terminate when the length of A <= 2.  
-b. If the first N - 1 elements have a candidate, then the last one doesn't make a difference. Otherwise, the last element may be the majority, so let it be the candidate.  
+b. If the first N - 1 elements have a candidate, then the last one doesn't make a difference. Otherwise, the last element may be the 		    majority, so let it be the candidate.  
 c. O(N)  
 d. Save a copy of A and place the elements of B in A.  
 e. [Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_19_find-candidate.cpp)

@@ -30,9 +30,9 @@ int main()
 			list[i].push_back(letter);
 		}
 	}
-	for (int i = 0; i != table_n; ++i) {  //traversal the letter list
+	for (int i = 0; i != table_n; ++i) {  //traverse the letter list
 		for (int j = 0; j != table_n; ++j) {
-			for (int k = 0; k != 8; ++k) {  //traversal the change_x/change_y array
+			for (int k = 0; k != 8; ++k) {  //traverse the change_x/change_y array
 				string s;
 				int x = i;
 				int y = j;

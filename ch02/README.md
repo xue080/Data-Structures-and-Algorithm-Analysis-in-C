@@ -186,7 +186,7 @@ Analysis : The algorithm is based on the following principle.
 The binary carry mechanism is two in one, so each high order digit is twice the low order digit. When placed on the index, twice is square. For example, 2^5 = 2^(101) so there are one 2^1 and zero 2^2 and one 2^4. 
 ## Exercise 2.17
  
- If N = 0 or N = 1, the number is zero.  
+If N = 0 or N = 1, the number is zero.  
 Let b(N) is the number of ones in the binary representation of N, if N > 1, the number is [log(N)] + b(N) - 1
 
 ## Exercise 2.18
@@ -207,3 +207,36 @@ e. [Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/
 ## Exercise 2.20
 
 If integers don't have fixed size, we can perform many operations at the same time by playing tricks. For example we can add A and B at the same time as C and D by adding 0A0C and 0B0D. We can extend this to add N pairs of numbers at once in unit cost, which prevent our analysis of the running time.
+
+## Exercise 2.21
+
+a. RCW  
+b. Use binary search to check if the word is in the word list instead of traversing the whole word list. 
+
+## Exercise 2.22
+
+No, if the target is in the subarray to the right of the middle element, sometimes the loop never ends.
+
+## Exercise 2.23
+
+```cpp
+bool BinarySearch(const std::vector<int>& v,int target)
+{
+	int mid,left = 0,right = v.size() - 1;
+	while(left <= right) {
+		mid = (left + right) / 2;
+		if(v[mid] < target) {
+			left = mid + 1;
+		} else {
+			if(v[mid == target])
+				return true;
+			right = mid - 1;
+		}
+	} 
+	return false;
+}
+```
+
+## Exercise 2.24
+
+No, as in Exercise 2.22.

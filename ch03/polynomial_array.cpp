@@ -19,15 +19,27 @@ std::istream& operator>>(std::istream &is, Polynomial &poly)
 	return is;
 }
 
-std::ostream& operator<<(std::ostream &os, const Polynomial &poly)
+std::ostream& operator<<(std::ostream &os, const Polynomial &poly) 
 {
-	for (int i = poly.high_power; i > 0; --i) {
-		if (poly.coeff[i] != 0)
-			os << poly.coeff[i] << "x^" << i;
+	for (int i = poly.high_power; i > 1; --i) {
+		if (poly.coeff[i] != 0) {
+			if (poly.coeff[i] == 1)
+				os << "x^" << i;
+			else
+				os << poly.coeff[i] << "x^" << i;
+		}
 		if (poly.coeff[i - 1] > 0)
 			os << "+";
 	}
-	if (poly.coeff[0] != 0)
+	if (poly.coeff[1] != 0) {    
+		if (poly.coeff[1] == 1)
+			os << "x";
+		else
+			os << poly.coeff[1] << "x";
+	}
+	if (poly.coeff[0] > 0)
+		os << "+" << poly.coeff[0];
+	else if (poly.coeff[0] < 0)
 		os << poly.coeff[0];
 	return os;
 }

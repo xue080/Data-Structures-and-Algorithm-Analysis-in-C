@@ -4,7 +4,7 @@
 #include<cstddef>
 
 class Node;
-using PtrToNode = class Node*;
+using PtrToNode = Node*;
 using  List = PtrToNode;
 using  Position = PtrToNode;
 

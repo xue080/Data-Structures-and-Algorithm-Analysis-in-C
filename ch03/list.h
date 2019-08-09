@@ -22,14 +22,14 @@ class LinkedList {
 	friend std::istream& operator>>(std::istream&, LinkedList&);
 	friend std::ostream& operator<<(std::ostream&, const LinkedList&);
 public: 
-	LinkedList() :head(new Node), count(0) {};
+	LinkedList() : count(0) {};
 	LinkedList(const LinkedList&);    //with rule of 3
 	LinkedList& operator=(LinkedList);
 	~LinkedList();
 	
-	bool IsEmpty() const { return head == nullptr; }
+	bool IsEmpty() const { return head->next == nullptr; }
 	bool IsLast(Node *p) const { return p->next == nullptr; }
-	Node* Header() const { return head; }
+	Node* Header() { return head; }
 	Node* First() const { return head->next; }
 	int Restrieve(Node *p) const { return p->data; }
 
@@ -41,7 +41,7 @@ public:
 	LinkedList& MakeEmpty();
 
 private: 
-	Node* head;   //note that it's a dummy node(also called header)
+	Node* head = new Node;   //note that it's a dummy node(also called header) !!!
 	size_t count;  //the number of Node
 };
 

@@ -47,6 +47,7 @@ void LinkedList::Insert(int x, Node* p)
 	Node* next_p = p->next;
 	p->next = obj;
 	obj->next = next_p;
+	count++;
 }
 
 void LinkedList::Delete(int x)
@@ -56,17 +57,20 @@ void LinkedList::Delete(int x)
 		Node* p = previous_p->next;
 		previous_p->next = p->next;
 		delete p;
+		count--;
 	}
 }
 
 void LinkedList::DeleteList()
 {
-	Node* p = head;
-	while (p->next) {
+	Node* p = head->next;
+	head->next = nullptr;  //very important!!! beacause a pointer will become dangling pointer after being deleted, we should reset it.
+	while (p) {
 		Node* temp = p->next;
 		delete p;
 		p = temp;
 	}
+	count = 0;
 }
 
 LinkedList& LinkedList::MakeEmpty()
@@ -97,6 +101,6 @@ std::ostream& operator<<(std::ostream &os, const LinkedList &list)
 		p = p->next;
 	}
 	os << std::endl;
-	os << "count = " << list.count << std::endl;
+	os << "count = " << list.count;
 	return os;
 }

@@ -33,12 +33,12 @@ void ProcessFile(const string& filename)
 			if (find(files.begin(), files.end(), file) != files.end()) {
 				cerr << "Existed file " << file << endl;
 				continue;
-			}
-			else
+			} else {
 				ProcessFile(file);
-		}
-		else
+			}	
+		} else {
 			cout << line << endl;
+		}
 	}
 	in.close();
 }

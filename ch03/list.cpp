@@ -1,50 +1,102 @@
-#include"list.h"
+#include"List.h"
+#include<algorithm>
 
-Position Node::Find(int x)
+LinkedList::LinkedList(const LinkedList &source)
 {
-	Position p = next;
-	while (p != NULL && p->element != x)
+	Node* to_copy = source.head;
+	Node* dest = head;
+	while (to_copy->next) {
+		dest->next = new Node(to_copy->next->data);
+		to_copy = to_copy->next;
+		dest = dest->next;
+	}
+	count = source.count;
+}
+
+LinkedList& LinkedList::operator=(LinkedList source)
+{
+	std::swap(head, source.head);
+	std::swap(count, source.count);
+	return *this;
+}
+
+LinkedList::~LinkedList()
+{
+	DeleteList();
+}
+
+Node* LinkedList::Find(int x)
+{
+	Node* p = First();
+	while (p != nullptr && p->data != x)
 		p = p->next;
 	return p;
 }
 
-Position Node::FindPrevious(int x)
+Node* LinkedList::FindPrevious(int x)
 {
-	Position p = this;
-	while (p->next != NULL && p->next->element != x)
+	Node* p = head;
+	while (p->next != nullptr && p->next->data != x)
 		p = p->next;
 	return p;
 }
 
-void Node::Insert(int x, Position p)
+void LinkedList::Insert(int x, Node* p)
 {
-	Position new_p = new Node;   //if fail to allocate storage, it will throw std::bad_alloc exception
-	new_p->next = p->next;
-	new_p->element = x;
-	p->next = new_p;
+	Node* obj = new Node(x);
+	Node* next_p = p->next;
+	p->next = obj;
+	obj->next = next_p;
 }
 
-void Node::Delete(int x)
+void LinkedList::Delete(int x)
 {
-	Position previous_p = FindPrevious(x);
-	if (!IsLast(previous_p)) {
-		Position p = previous_p->next;
+	Node* previous_p = FindPrevious(x);
+	if (!IsLast(previous_p)) {  //x is not found if false 
+		Node* p = previous_p->next;
 		previous_p->next = p->next;
 		delete p;
 	}
 }
 
-void Node::DeleteList()
+void LinkedList::DeleteList()
 {
-	while (next != NULL) {
-		Position temp = next->next;
-		delete next;
-		next = temp;
+	Node* p = head;
+	while (p->next) {
+		Node* temp = p->next;
+		delete p;
+		p = temp;
 	}
 }
 
-List Node::MakeEmpty()
+LinkedList& LinkedList::MakeEmpty()
 {
 	DeleteList();
-	return this;
+	return *this;
+}
+
+std::istream& operator>>(std::istream &is, LinkedList &list)
+{
+	int x;
+	size_t cnt = 0;
+	Node* p = list.head;
+	while (is >> x) {
+		cnt++;
+		list.Insert(x, p);
+		p = p->next;
+	}
+	list.count = cnt;
+	return is;
+}
+
+std::ostream& operator<<(std::ostream &os, const LinkedList &list)
+{
+	Node* p = list.head;
+	while (p->next) {
+		os << p->next->data << " ";
+		p = p->next;
+	}
+	os << std::endl;
+	os << "count = " << list.count << std::endl;
+	return os;
 }

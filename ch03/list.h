@@ -1,29 +1,48 @@
+//To simplify matters,
+//we assume that the elements in the list are integers.
+
 #ifndef _LIST_H
 #define _LIST_H
 
-#include<cstddef>
+#include<iostream>
 
-class Node;
-using PtrToNode = Node*;
-using  List = PtrToNode;
-using  Position = PtrToNode;
-
-class Node {
+class Node {        
 public:
-	List MakeEmpty();
-	bool IsEmpty() const { return next == NULL; }
-	bool IsLast(Position p) const { return p->next == NULL; }
-	Position Find(int);
+	Node() :data(0), next(nullptr){}
+	Node(int item) :data(item), next(nullptr) {}
+			//Not to copy single node. Let the class 'LinkedList' do the job.
+	Node(const Node&) = delete;  
+	Node& operator=(const Node&) = delete;
+
+	int data;
+	Node* next;
+};
+
+class LinkedList {
+	friend std::istream& operator>>(std::istream&, LinkedList&);
+	friend std::ostream& operator<<(std::ostream&, const LinkedList&);
+public: 
+	LinkedList() :head(new Node), count(0) {};
+	LinkedList(const LinkedList&);    //with rule of 3
+	LinkedList& operator=(LinkedList);
+	~LinkedList();
+	
+	bool IsEmpty() const { return head == nullptr; }
+	bool IsLast(Node *p) const { return p->next == nullptr; }
+	Node* Header() const { return head; }
+	Node* First() const { return head->next; }
+	int Restrieve(Node *p) const { return p->data; }
+
+	Node* Find(int);   //return nullptr if not found
+	Node* FindPrevious(int); //return the last element if not found
+	void Insert(int, Node *p); //insert an element after designated Node
 	void Delete(int);
-	Position FindPrevious(int);
-	void Insert(int, Position);
 	void DeleteList();
-	Position Header() { return this; }
-	Position First() const { return next; };
-	int Retrieve(Position p) const { return p->element; };
-private:
-	int element;
-	Position next;
+	LinkedList& MakeEmpty();
+
+private: 
+	Node* head;   //note that it's a dummy node(also called header)
+	size_t count;  //the number of Node
 };
 
 #endif // !_LIST_H

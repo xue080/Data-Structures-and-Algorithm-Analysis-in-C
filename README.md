@@ -4,7 +4,7 @@
 * Use IDE : `Visual Studio 2017 Community` / text editor : `Sublime Text 3`.
 * Use `gcc version 6.3.0`(MinGW.org GCC-6.3.0-1).
 * Use `-std=c++11`(recommend: `-pedantic -Wall`) flag for compiling.
-* Solutions for mathematical exercises were `omitted`(Because formulas are hard to write down here).
+* Solutions for mathematical exercises are `omitted`(Because formulas are hard to write down here).
 * I would like to know about `errors in my answers`
 * May `update slowly`
 ## Contents
@@ -19,3 +19,8 @@
 * Chapter 9: Graph Algorithms
 * Chapter 10: Algorithm Design Techniques
 * Chapter 11: Amortized Analysis
+
+## License
+Copyright (c) 2019 seineo. All rights reserved.
+
+Licensed under the [MIT License](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/LICENSE).

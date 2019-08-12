@@ -1,4 +1,4 @@
-#include"Stack.h"
+#include"stack_list.h"
 using namespace std;
 
 int main()
@@ -17,3 +17,15 @@ int main()
 	cout << stack1 << endl;
 	system("pause");
 }
+
+//input:
+//1 2 3 EOF
+
+//output:
+//3 2 1
+//true
+//4 3 2 1 0
+//3 2 1 0
+//2 1 0
+//1 0
+//1

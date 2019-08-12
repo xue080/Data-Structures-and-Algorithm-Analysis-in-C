@@ -1,4 +1,4 @@
-#include"Stack.h"
+#include"stack_list.h"
 
 Stack::Stack(const Stack &stack)
 {
@@ -22,7 +22,7 @@ Stack::~Stack()
 	MakeEmpty();
 }
 
-int Stack::Top()
+int Stack::Top() const
 {
 	if (!IsEmpty())
 		return head->next->data;

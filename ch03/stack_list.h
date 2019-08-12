@@ -1,5 +1,5 @@
-#ifndef _STACK_H
-#define _STACK_H
+#ifndef _STACK_LIST_H
+#define _STACK_LIST_H
 
 #include<iostream>
 
@@ -26,7 +26,7 @@ public:
 	bool IsEmpty() const { return head->next == nullptr; }
 	void MakeEmpty();
 	void Push(int);
-	int Top();
+	int Top() const;
 	void Pop();
 
 private:
@@ -34,4 +34,4 @@ private:
 };
 
 
-#endif // !_STACK_H
+#endif // !_STACK_LIST_H

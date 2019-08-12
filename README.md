@@ -4,7 +4,7 @@
 * Use IDE : `Visual Studio 2017 Community` / text editor : `Sublime Text 3`.
 * Use `gcc version 6.3.0`(MinGW.org GCC-6.3.0-1).
 * Use `-std=c++11`(recommend: `-pedantic -Wall`) flag for compiling.
-* Solutions for mathematical exercises are `omitted`(Because formulas are hard to write down here).
+* Solutions to mathematical exercises are `omitted`(Because formulas are hard to write down here).
 * I would like to know about `errors in my answers`
 * May `update slowly`
 ## Contents

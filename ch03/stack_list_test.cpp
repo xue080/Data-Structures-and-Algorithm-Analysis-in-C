@@ -15,7 +15,7 @@ int main()
 	cout << stack1.Top() << endl;
 	stack1.MakeEmpty();
 	cout << stack1 << endl;
-	system("pause");
+	return 0;
 }
 
 //input:

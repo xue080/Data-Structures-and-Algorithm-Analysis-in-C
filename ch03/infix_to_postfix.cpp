@@ -1,44 +1,45 @@
 //As the example in the book, we just discuss integer.
 
 #include<iostream>
+#include <cmath>
 #include<stack>
+#include<map>
 #include <string>
 using namespace std;
 
-string Conversion(const string &str)   //convertinfix expressions to postfix expressions
+string Conversion(const string &str)
 {
 	stack<char> s;
+	map<char,int> Map;  
 	string result;
+
+	Map['('] = Map[')'] = 0;   //set priority
+	Map['+'] = Map['-'] = 1;  
+	Map['*'] = Map['/'] = 2;
+	Map['^'] = 3;     
+
 	for(auto i : str) {
 		if(isdigit(i))
 			result += i;
 		else {
 			switch(i) {
-				case '+':      //subtraction and addition have equal priority
-				case '-':
-					while(!s.empty() && s.top() != '(') {
-						result += s.top();
-						s.pop();
-					}
-					s.push(i);
-					break;
-				case '*':      //multiplication and division have equal priority
-				case '/':
-					while(!s.empty() && s.top() != '+' && s.top() != '-' && s.top() != '('){
-						result += s.top();
-						s.pop();
-					}
-					s.push(i);
-					break;
+				case '^':     //operators that associate from right to left and '(' just call push()
 				case '(':
 					s.push(i);
 					break;
 				case ')':
-					while(!s.empty() && s.top() != '(') {
+					while(s.top() != '(') {
 						result += s.top();
 						s.pop();
 					}
 					s.pop();
+					break;
+				default:     // '+' '-' '*' '/' operators that associate from left to right
+					while(!s.empty() && Map[s.top()] >= Map[i]) {
+						result += s.top();
+						s.pop();
+					}
+					s.push(i);
 					break;
 			}
 		}
@@ -50,7 +51,7 @@ string Conversion(const string &str)   //convertinfix expressions to postfix exp
 	return result;
 }
 
-int Calculate(const string &str)       //calculate postfix expressions
+int Calculate(const string &str)
 {
 	stack<int> s;
 	int item1,item2;
@@ -75,6 +76,8 @@ int Calculate(const string &str)       //calculate postfix expressions
 				case '/':
 					s.push(item2 / item1);
 					break;
+				case '^':
+					s.push(pow(item2,item1));
 			}
 		}
 	}

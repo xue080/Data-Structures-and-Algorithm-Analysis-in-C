@@ -6,7 +6,7 @@ Stack::Stack(int max_elements)
 {
 	if (max_elements < MinStackSize)
 		throw std::runtime_error("Stack size is too small");
-	stack = new StackRecord(max_elements, EmptyTOS);
+	stack = new StackRecord(max_element);
 }
 
 Stack::Stack(const Stack &s)

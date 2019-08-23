@@ -6,7 +6,7 @@ const int MinStackSize = 5;
 
 struct StackRecord {
 	StackRecord() = default;
-	StackRecord(int cap, int tos) :capacity(cap), top_of_stack(tos) { array = new int[capacity]; }
+	StackRecord(int cap) :capacity(cap), top_of_stack(EmptyTOS) { array = new int[capacity]; }
 	
 	int capacity;
 	int top_of_stack;

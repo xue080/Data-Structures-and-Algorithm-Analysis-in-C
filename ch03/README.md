@@ -19,4 +19,4 @@ Array Version : [hpp](https://github.com/seineo/Data-Structures-and-Algorithm-An
 
 ## 3.4.2 Exercise : Implementation of Queue
 
-[hpp]() [cpp]() [test]()
+[hpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue.h) [cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue.cpp) [test](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue_test.cpp)

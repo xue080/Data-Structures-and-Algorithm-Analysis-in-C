@@ -20,3 +20,50 @@ Array Version : [hpp](https://github.com/seineo/Data-Structures-and-Algorithm-An
 ## 3.4.2 Exercise : Implementation of Queue
 
 [hpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue.h) [cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue.cpp) [test](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue_test.cpp)
+
+***
+
+
+## Exercise 3.1
+
+```cpp
+void Print(const LinkedList &l)
+{
+	Node* p = l.First();
+	while (p) {
+		std::cout << p->data << " ";
+		p = p->next;
+	}
+	std::cout << endl;
+}
+```
+
+## Exercise 3.2
+
+```cpp
+void PrintLots(const LinkedList &L, const LinkedList &P)
+{
+	/*Node* l = L.First();
+	Node* p = P.First();
+	while (l && p) {
+		l = L.First();
+		int loc = P.Restrieve(p);
+		while (--loc)
+			l = L.Advance(l);      //unsafe, may raise nullptr error
+		cout << L.Restrieve(l) << " ";
+		p = P.Advance(p);
+	}*/
+	Node* Lpos;
+	Node* Ppos;
+	Lpos = L.First();
+	Ppos = P.First();
+	int Count = 1;
+	while (Lpos && Ppos) {     //safe, wouldn't raise error
+		if (P.Restrieve(Ppos) == Count++) {
+			cout << L.Restrieve(Lpos) << " ";
+			Ppos = P.Advance(Ppos);
+		}
+		Lpos = L.Advance(Lpos);   //important! 
+	}
+}
+```

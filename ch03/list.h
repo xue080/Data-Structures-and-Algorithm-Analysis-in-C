@@ -31,6 +31,7 @@ public:
 	bool IsLast(Node *p) const { return p->next == nullptr; }
 	Node* Header() { return head; }
 	Node* First() const { return head->next; }
+	Node* Advance(const Node *p) const { return p->next; }  //return next Node*
 	int Restrieve(Node *p) const { return p->data; }
 
 	Node* Find(int);   //return nullptr if not found

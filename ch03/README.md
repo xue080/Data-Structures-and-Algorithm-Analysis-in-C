@@ -32,7 +32,7 @@ void Print(const LinkedList &l)
 	Node* p = l.First();
 	while (p) {
 		std::cout << p->data << " ";
-		p = p->next;
+		p = l.Advance(p);
 	}
 	std::cout << endl;
 }
@@ -65,5 +65,29 @@ void PrintLots(const LinkedList &L, const LinkedList &P)
 		}
 		Lpos = L.Advance(Lpos);   //important! 
 	}
+}
+```
+
+## Exercise 3.3
+
+Singly linked list: (before_p is the element before the two adjacent elements(p and after_p) are to swapped.)  
+```cpp
+void SinglyLinkedList::Swap(Node* before_p)
+{
+	Node* p;
+	Node* after_p;
+	p = before_p->next;
+	after_p = p->next;
+	before_p->next = after_p;
+	p->next = after_p->next;
+	after_p->next = p;
+}
+```
+
+Doubly linked list:(p and after_p are the two adjacent elements are to swapped)  
+```cpp
+void DoublyLinkedList::Swap(Node* p)
+{
+
 }
 ```

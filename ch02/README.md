@@ -182,7 +182,7 @@ The running time : O(NloglogN)
 ## Exercise 2.16
 
 [Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_16_exponentiation.cpp)  
-Principle : Binary system.
+Principle : Binary system and bit operation
 ## Exercise 2.17
  
 If N = 0 or N = 1, the number is zero.  

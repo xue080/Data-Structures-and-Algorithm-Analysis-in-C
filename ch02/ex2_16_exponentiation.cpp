@@ -12,8 +12,7 @@ using namespace std;
 long int Pow(int base,int exp)
 {
 	long int ans = 1;
-	while(exp)
-	{
+	while(exp)	{
 		if(exp & 1)
 			ans *= base;
 		base *= base;

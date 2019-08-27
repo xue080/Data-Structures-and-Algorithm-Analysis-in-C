@@ -6,29 +6,26 @@
 #include <vector>
 using namespace std;
 
-long int Pow(long int X,unsigned int N)
+#include<iostream>
+using namespace std;
+
+long int Pow(int base,int exp)
 {
-	vector<long int> v;
-	int i;
-	int value = 1;
-	v.push_back(X);
-	for(i = 1;i <= log2(N);++i)        
-		v.push_back(v[i - 1] * v[i - 1]);
-	i = 0;
-	while(N > 0) {
-		if(N % 2 == 1)
-			value *= v[i];
-		i++;
-		N /= 2;
+	long int ans = 1;
+	while(exp)
+	{
+		if(exp & 1)
+			ans *= base;
+		base *= base;
+		exp >>= 1;
 	}
-	return value;
+	return ans;
 }
 
 int main()
 {
-	long int X;
-	unsigned int N;
-	cin >> X >> N;
-	cout << Pow(X,N) << endl;
+	int a,b;
+	cin >> a >> b;
+	cout << Pow(a,b) << endl;
 	return 0;
 }

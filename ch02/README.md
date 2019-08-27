@@ -182,8 +182,7 @@ The running time : O(NloglogN)
 ## Exercise 2.16
 
 [Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_16_exponentiation.cpp)  
-Analysis : The algorithm is based on the following principle.  
-The binary carry mechanism is two in one, so each high order digit is twice the low order digit. When placed on the index, twice is square. For example, 2^5 = 2^(101) so there are one 2^1 and zero 2^2 and one 2^4. 
+Principle : Binary system.
 ## Exercise 2.17
  
 If N = 0 or N = 1, the number is zero.  

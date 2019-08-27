@@ -85,9 +85,105 @@ void SinglyLinkedList::Swap(Node* before_p)
 ```
 
 Doubly linked list:(p and after_p are the two adjacent elements are to swapped)  
+Assume that the class Node has two member `Node* previous` and `Node* next`
 ```cpp
 void DoublyLinkedList::Swap(Node* p)
 {
-
+	Node* after_p = p->next;
+	Node* pre_p = p->previous;
+	Node* the_next = after_p->next;
+	after_p->previous = pre_p;
+	pre_p->next = after_p;
+	after_p->next = p;
+	p->previous = after_p;
+	p->next = the_next;
+	the_next->previous = p;
 }
 ```
+
+## Exercise 3.4
+
+```cpp
+LinkedList Intersect(const LinkedList &L1, const LinkedList &L2)
+{
+	LinkedList answer;
+	Node* loc_l1 = L1.First();
+	Node* loc_l2 = L2.First();
+	Node* loc_ans = answer.Header();
+	while (loc_l1 && loc_l2) {
+		if (L1.Restrieve(loc_l1) < L2.Restrieve(loc_l2))
+			loc_l1 = L1.Advance(loc_l1);
+		else if (L1.Restrieve(loc_l1) > L2.Restrieve(loc_l2))
+			loc_l2 = L2.Advance(loc_l2);
+		else {
+			answer.Insert(L1.Restrieve(loc_l1), loc_ans);
+			loc_l1 = L1.Advance(loc_l1);
+			loc_l2 = L2.Advance(loc_l2);
+			loc_ans = answer.Advance(loc_ans);
+		}
+	}
+	return answer;
+}
+```
+
+## Exercise 3.5
+
+```cpp
+LinkedList Union(const LinkedList &L1, const LinkedList &L2)
+{
+	LinkedList answer;
+	int num;
+	Node* loc_l1 = L1.First();
+	Node* loc_l2 = L2.First();
+	Node* loc_ans = answer.Header();
+	while (loc_l1 && loc_l2) {
+		if (L1.Restrieve(loc_l1) < L2.Restrieve(loc_l2)) {
+			num = L1.Restrieve(loc_l1);
+			loc_l1 = L1.Advance(loc_l1);
+		}
+		else if (L1.Restrieve(loc_l1) > L2.Restrieve(loc_l2)) {
+			num = L2.Restrieve(loc_l2);
+			loc_l2 = L2.Advance(loc_l2);
+		}
+		else {
+			num = L1.Restrieve(loc_l1);
+			loc_l1 = L1.Advance(loc_l1);
+			loc_l2 = L2.Advance(loc_l2);
+		}
+		answer.Insert(num, loc_ans);
+		loc_ans = answer.Advance(loc_ans);
+	}
+	while (loc_l1) {
+		answer.Insert(L1.Restrieve(loc_l1),loc_ans);
+		loc_l1 = L1.Advance(loc_l1);
+		loc_ans = answer.Advance(loc_ans);
+	}
+	while (loc_l2) {
+		answer.Insert(L2.Restrieve(loc_l2), loc_ans);
+		loc_l2 = L2.Advance(loc_l2);
+		loc_ans = answer.Advance(loc_ans);
+	}
+	return answer;
+}
+```
+
+## Exercise 3.6
+
+[Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/README.md#327-exercise--the-polynomial-adt) (Check List Version)  
+The Time Complexity : O(max{M,N})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

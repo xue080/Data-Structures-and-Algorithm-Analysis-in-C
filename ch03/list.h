@@ -29,6 +29,7 @@ public:
 	
 	bool IsEmpty() const { return head->next == nullptr; }
 	bool IsLast(Node *p) const { return p->next == nullptr; }
+	size_t Size() const { return count; }
 	Node* Header() { return head; }
 	Node* First() const { return head->next; }
 	Node* Advance(const Node *p) const { return p->next; }  //return next Node*

@@ -24,3 +24,14 @@ int main()
 	cout << Pow(poly, n) << endl;
 	return 0;
 }
+
+//input:
+//1 2
+//1 1
+//0 0
+//2
+//1 0
+//0 0
+
+//output:
+//x^4+2x^3+x^2

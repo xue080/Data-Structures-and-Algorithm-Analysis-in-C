@@ -22,7 +22,7 @@ class LinkedList {
 	friend std::istream& operator>>(std::istream&, LinkedList&);
 	friend std::ostream& operator<<(std::ostream&, const LinkedList&);
 public: 
-	LinkedList() : count(0) {};
+	LinkedList() : count(0) {}
 	LinkedList(const LinkedList&);    //with rule of 3
 	LinkedList& operator=(LinkedList);
 	~LinkedList();

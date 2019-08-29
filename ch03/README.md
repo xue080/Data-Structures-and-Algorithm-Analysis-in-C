@@ -172,13 +172,90 @@ LinkedList Union(const LinkedList &L1, const LinkedList &L2)
 [Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/README.md#327-exercise--the-polynomial-adt) (Check List Version)  
 The Time Complexity : O(max{M,N})
 
+## Exercise 3.7 ~ 3.8
 
+[3.2.7 Exercise](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch03#327-exercise--the-polynomial-adt) (Check List Version cpp)
 
+## Exercise 3.10
 
+**a. Write a program with disposal of cells**  
+Note that the `LinkedList` in the function below is a circular list. Just need to change the line 25 in `List.h` to  
+```cpp
+LinkedList() : count(0) { head->next = head; }
+```  
+Program:  
+```cpp
+int Josephus(int N,int M)
+{
+	LinkedList L;    
+	Node* p = L.Header();
+	for (int i = 1; i <= N; ++i) { 
+		L.Insert(i, p);
+		p = L.Advance(p);
+	}
+	p = L.First();
+	while (L.Size() != 1) {
+		int temp = M;
+		while (--temp) {
+			p = L.Advance(p);
+			if (p == L.Header())   //list with dummy node make it a little bit inelegant
+				p = L.Advance(p);
+		}
+		if (p == L.Header())
+			p = L.Advance(p);
+		Node* the_next = L.Advance(p);
+		L.Delete(p->data);
+		p = the_next;
+		if (p == L.Header())
+			p = L.Advance(p);
+	}
+	return L.Restrieve(p);
+}
+```
 
+**b. The running time**  
+O(NM)
 
+**c. The running time if m = 1. How is the actual speed affected by the free routine for large values of N**  
+If m = 1, the running time is O(N).  
+For large values of N, the actual speed depends on compiler's memory management routine.
 
+**The much more faster algorithm :**
+```cpp
+int Josephus(int N, int M)
+{
+	int i,p = 0;
+	for (i = 2; i <= N; ++i)
+		p = (p + M) % i;
+	return p + 1;
+}
+```
+Its running time is O(N)
 
+## Exercise 3.11
+
+**Recursive**  
+```cpp
+Node* LinkedList::Find(int x, Node* p)
+{
+	if (p != nullptr && p->data != x)
+		Find(x, p->next);
+	return p;
+}
+```
+
+**Nonrecursive**  
+```cpp
+Node* LinkedList::Find(int x)
+{
+	Node* p = First();
+	while (p != nullptr && p->data != x)
+		p = p->next;
+	return p;
+}
+```
+
+When list has about more than 4500 elements, stack overflow.
 
 
 

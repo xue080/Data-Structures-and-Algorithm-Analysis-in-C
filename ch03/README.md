@@ -257,8 +257,24 @@ Node* LinkedList::Find(int x)
 
 When list has about more than 4500 elements, stack overflow.
 
+## Exercise 3.12
 
-
+```cpp
+void LinkedList::Reverse()
+{
+	Node* pre = nullptr;
+	Node* cur = First();
+	Node* the_next = cur->next;
+	while (cur) {
+		cur->next = pre;
+		pre = cur;
+		cur = the_next;
+		if(the_next)
+			the_next = the_next->next;
+	}
+	head->next = pre;
+}
+```
 
 
 

@@ -220,7 +220,8 @@ O(NM)
 If m = 1, the running time is O(N).  
 For large values of N, the actual speed depends on compiler's memory management routine.
 
-**The much more faster algorithm :**
+**The much more faster algorithm :**  
+[Reference(Chinese)](https://blog.csdn.net/u011500062/article/details/72855826)
 ```cpp
 int Josephus(int N, int M)
 {
@@ -229,8 +230,8 @@ int Josephus(int N, int M)
 		p = (p + M) % i;
 	return p + 1;
 }
-```
-Its running time is O(N)
+```  
+Its running time is O(N).
 
 ## Exercise 3.11
 

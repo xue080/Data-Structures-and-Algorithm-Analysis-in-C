@@ -1,5 +1,5 @@
 # Chapter 2: Algorithm Analysis
-`Note: N^x(N is an unknown number, x is a digit) means the xth power of N`
+`Note: N^x(N is an unknown, x is a digit) means the xth power of N`
 ## Exercise 2.1
 Omitted(Because formulas are hard to write down here).
 ## Exercise 2.2
@@ -182,7 +182,8 @@ The running time : O(NloglogN)
 ## Exercise 2.16
 
 [Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_16_exponentiation.cpp)  
-Principle : Binary system and bit operation
+Principle : Binary system and bit operation  
+[Reference(Chinese)](https://blog.csdn.net/qq_30062589/article/details/79894098)
 ## Exercise 2.17
  
 If N = 0 or N = 1, the number is zero.  

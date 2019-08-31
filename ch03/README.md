@@ -167,14 +167,13 @@ LinkedList Union(const LinkedList &L1, const LinkedList &L2)
 }
 ```
 
-## Exercise 3.6
+## Exercise 3.6 ~ 3.7
 
-[Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/README.md#327-exercise--the-polynomial-adt) (Check List Version)  
-The Time Complexity : O(max{M,N})
+[3.2.7 Exercise](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/README.md#327-exercise--the-polynomial-adt) (Check List Version cpp)  
 
-## Exercise 3.7 ~ 3.8
+## Exercise 3.8
 
-[3.2.7 Exercise](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch03#327-exercise--the-polynomial-adt) (Check List Version cpp)
+[Code](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_08_poly_exp.cpp)  
 
 ## Exercise 3.10
 
@@ -276,6 +275,18 @@ void LinkedList::Reverse()
 	head->next = pre;
 }
 ```
+
+## Exercise 3.13
+
+I think use array is easier and more effective than using list, so I post array version here.  
+[RadixSort](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_13_radix_sort.cpp)  
+[Reference(Chinese)](https://www.jianshu.com/p/08bed64b1501)
+
+## Exercise 3.14
+
+[GraphAdjList for undirected graph](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch03)
+
+
 
 
 

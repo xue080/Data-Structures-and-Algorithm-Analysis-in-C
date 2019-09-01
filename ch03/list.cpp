@@ -56,6 +56,27 @@ void LinkedList::Insert(int x, Node* p)
 	count++;
 }
 
+void LinkedList::LazyDelete(int x)
+{
+	Node* p = Find(x);
+	p->deleted = true;
+	de_count++;   //de_count is the number of being deleted
+				  //no_de_count is the number of not being deleted
+	no_de_count = count - de_count;
+	if (de_count == no_de_count) {
+		Node* q = Header();
+		while (q->next) {
+			if (q->next->deleted) {
+				Node* temp = q->next->next;
+				delete q->next;
+				q->next = temp;
+			}
+			else
+				q = q->next;
+		}
+	}
+}
+
 void LinkedList::Delete(int x)
 {
 	Node* previous_p = FindPrevious(x);
@@ -106,8 +127,6 @@ std::ostream& operator<<(std::ostream &os, const LinkedList &list)
 		os << p->next->data << " ";
 		p = p->next;
 	}
-	os << std::endl;
-	os << "count = " << list.count;
 	return os;
 }
 

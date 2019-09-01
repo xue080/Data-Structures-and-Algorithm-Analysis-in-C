@@ -34,7 +34,7 @@ void Print(const LinkedList &l)
 		std::cout << p->data << " ";
 		p = l.Advance(p);
 	}
-	std::cout << endl;
+	std::cout << std::endl;
 }
 ```
 
@@ -327,5 +327,77 @@ Node* LinkedList::Find(int x)
 	return nullptr;
 }
 ```
+
+## Exercise 3.16
+
+**a.Explain how this procedure works**  
+Traverse the list(not include the last one), compare each element with its rear ones, if equals, delete the rear one, else compare with the next one.
+
+**b.Using general list operations**  
+```cpp
+void LinkedList::RemoveDup()
+{
+	for (Node* p = First(); !IsLast(p); p = p->next) {
+		Node* q = p->next;
+		while (q) {
+			if (q->data == p->data) {
+				Node* temp = q->next;
+				delete q;
+				q = temp;
+				p->next = temp;  //need update p->next, otherwise it's a dangling pointer
+				count--;    //update the number of elements
+			}
+			else
+				q = q->next;
+		}
+	}
+}
+```
+
+**c.The running time using array implementation**  
+O(N^2)
+
+**d.The running time using linked list implementation**  
+O(N^2)
+
+**e.Give an algorithm to solve this problem in O(n log n) time**  
+Sort the list, and then traverse the list once to remove duplicates.
+
+## Exercise 3.17
+
+**a.List the advantages and disadvantages**  
+Advantages : Simple to code, and there is a possibe saving if deleted elements are reinserted in the same place later.  
+Disadvantages : Use more space, and in most cases, the deleted elements are not freed.
+
+**b.Write the routine**  
+Necessary modifications to the List ADT have made.  
+Check [Implementation of List](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/README.md#322-exercise--implementation-of-list)
+```cpp
+void LinkedList::LazyDelete(int x)
+{
+	Node* p = Find(x);
+	p->deleted = true;
+	de_count++;   //de_count is the number of being deleted
+				  //no_de_count is the number of not being deleted
+	no_de_count = count - de_count;
+	if (de_count == no_de_count) {
+		Node* q = Header();
+		while (q->next) {
+			if (q->next->deleted) {
+				Node* temp = q->next->next;
+				delete q->next;
+				q->next = temp;
+			}
+			else
+				q = q->next;
+		}
+	}
+}
+```
+
+
+
+
+
 
 

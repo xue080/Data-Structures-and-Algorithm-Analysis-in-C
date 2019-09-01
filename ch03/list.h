@@ -35,7 +35,10 @@ public:
 	Node* Advance(const Node *p) const { return p->next; }  //return next Node*
 	int Restrieve(Node *p) const { return p->data; }
 
+	void Reverse();
+	void RemoveDup();
 	Node* Find(int);   //return nullptr if not found
+	Node* Find(int, Node*);
 	Node* FindPrevious(int); //return the last element if not found
 	void Insert(int, Node *p); //insert an element after designated Node
 	void Delete(int);

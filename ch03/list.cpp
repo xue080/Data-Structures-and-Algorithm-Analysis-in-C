@@ -32,6 +32,12 @@ Node* LinkedList::Find(int x)
 		p = p->next;
 	return p;
 }
+Node* LinkedList::Find(int x, Node* p)
+{
+	if (p != nullptr && p->data != x)
+		Find(x, p->next);
+	return p;
+}
 
 Node* LinkedList::FindPrevious(int x)
 {
@@ -64,7 +70,7 @@ void LinkedList::Delete(int x)
 void LinkedList::DeleteList()
 {
 	Node* p = head->next;
-	head->next = nullptr;  //very important!!! beacause a pointer will become dangling pointer after being deleted, we should reset it.
+	head->next = nullptr;  //very important!!!
 	while (p) {
 		Node* temp = p->next;
 		delete p;
@@ -103,4 +109,37 @@ std::ostream& operator<<(std::ostream &os, const LinkedList &list)
 	os << std::endl;
 	os << "count = " << list.count;
 	return os;
+}
+
+void LinkedList::Reverse()
+{
+	Node* pre = nullptr;
+	Node* cur = First();
+	Node* the_next = cur->next;
+	while (cur) {
+		cur->next = pre;
+		pre = cur;
+		cur = the_next;
+		if(the_next)
+			the_next = the_next->next;
+	}
+	head->next = pre;
+}
+
+void LinkedList::RemoveDup()
+{
+	for (Node* p = First(); !IsLast(p); p = p->next) {
+		Node* q = p->next;
+		while (q) {
+			if (q->data == p->data) {
+				Node* temp = q->next;
+				delete q;
+				q = temp;
+				p->next = temp;  //need update p->next, otherwise it's a dangling pointer
+				count--;    //update the number of elements
+			}
+			else
+				q = q->next;
+		}
+	}
 }

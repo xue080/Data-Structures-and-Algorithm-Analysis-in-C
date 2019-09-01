@@ -23,7 +23,7 @@ class LinkedList {
 	friend std::istream& operator>>(std::istream&, LinkedList&);
 	friend std::ostream& operator<<(std::ostream&, const LinkedList&);
 public: 
-	LinkedList() :head(new Node), count(0), de_count(0), no_de_count(0) {}
+	LinkedList() : count(0), de_count(0), no_de_count(0) {}
 	LinkedList(const LinkedList&);    //with rule of 3
 	LinkedList& operator=(LinkedList);
 	~LinkedList();
@@ -48,7 +48,7 @@ public:
 	LinkedList& MakeEmpty();
 
 private: 
-	Node* head;   //note that it's a dummy node(also called header) !!!
+	Node* head = new Node;   //note that it's a dummy node(also called header) !!!
 	size_t count;  //the number of Nodes
 	size_t de_count;   //the number of being deleted for lazy deletion
 	size_t no_de_count;  //the number of not being deleted for lazy deletion

@@ -26,10 +26,7 @@ int main()
 
 //output"
 //2 3 4 5 6 7
-//count = 6
 //2 3 4 6 7
-//count = 5
 //
-//count = 0
 //true
 //00000000   (nullptr)

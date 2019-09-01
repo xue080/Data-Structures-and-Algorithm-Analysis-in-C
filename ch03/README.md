@@ -284,11 +284,48 @@ I think use array is easier and more effective than using list, so I post array 
 
 ## Exercise 3.14
 
-[GraphAdjList for undirected graph](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch03)
+[GraphAdjList for undirected graph](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_14_graph_adjlist.cpp)
 
+## Exercise 3.15
 
+**a. Array implementation**  
+```cpp
+bool Find(int x,LinkedList L)
+{
+	bool flag = false;
+	int loc = 0	;
+	for(int i = 1;i != Size();++i) {
+		if(L[i].element == x) {
+			flag = true;
+			loc = i;
+			break;
+		}
+	}
+	if(flag) {
+		for(int i = loc;i != 1;--i)
+			L[i].element = L[i - 1].element;
+		L[1].element = x;
+		return true;
+	}
+	return false;
+}
+```
 
-
-
+**b.Linked list implementation**  
+```cpp
+Node* LinkedList::Find(int x)
+{
+	Node* pre = FindPrevious(x);
+	Node* loc_x;
+	if(pre != nullptr) {  //found
+		loc_x = pre->next;
+		pre->next = loc_x->next;
+		loc_x->next = First();
+		Header()->next = loc_x;
+		return loc_x;
+	}
+	return nullptr;
+}
+```
 
 

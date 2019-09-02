@@ -6,8 +6,7 @@
 
 #include<iostream>
 
-class Node {        
-public:
+struct Node {        
 	Node() :data(0), deleted(false), next(nullptr) {}
 	Node(int item) :data(item), deleted(false), next(nullptr) {}
 			//Not to copy single node. Let the class 'LinkedList' do the job.

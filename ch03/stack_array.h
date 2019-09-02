@@ -2,7 +2,7 @@
 #define _STACK_ARRAY_H
 
 constexpr int EmptyTOS = -1;
-const int MinStackSize = 5;
+constexpr int MinStackSize = 5;
 
 struct StackRecord {
 	StackRecord() = default;

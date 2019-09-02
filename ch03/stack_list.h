@@ -1,10 +1,12 @@
+//To simplify matters,
+//we assume that the elements in the stack are integers.
+
 #ifndef _STACK_LIST_H
 #define _STACK_LIST_H
 
 #include<iostream>
 
-class Node {
-public:
+struct Node {
 	Node() :data(0), next(nullptr) {}
 	Node(int item) :data(item), next(nullptr) {}
 	Node(const Node&) = delete;

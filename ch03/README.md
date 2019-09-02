@@ -395,8 +395,37 @@ void LinkedList::LazyDelete(int x)
 }
 ```
 
+## Exercise 3.18
 
+I write the code of b.(a and b are the same).  
+[BalanceSymbols](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_18_blance_symbols.cpp)
 
+## Exercise 3.19 ~ 3.20
+
+**3.19 ~ 3.20.b :**  
+[3.3.3 Exercise](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch03#333-exercise--infix-to-postfix-conversion)
+
+**3.20.c :**  
+The output will get extra parentheses.  
+```cpp
+string PostfixToInfix(const string& str)
+{
+	stack<string> s;
+	string operators = "+-*/^";
+	for(auto i : str) {
+		if(isdigit(i))
+			s.push(to_string(i - '0'));
+		else if(operators.find(i) != string::npos) {
+			string item1 = s.top();
+			s.pop();
+			string item2 = s.top();
+			s.pop();
+			s.push("(" + item2+ i + item1 + ")");
+		}
+	}
+	return s.top();
+}
+```
 
 
 

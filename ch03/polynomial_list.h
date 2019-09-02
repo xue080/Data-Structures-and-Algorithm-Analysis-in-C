@@ -3,8 +3,7 @@
 
 #include<iostream>
 
-class Node {
-public:
+struct Node {
 	Node() :coeff(0), expo(0), next(nullptr) {}
 	Node(int co, int ex) :coeff(co), expo(ex), next(nullptr) {}
 	Node(const Node&) = delete;

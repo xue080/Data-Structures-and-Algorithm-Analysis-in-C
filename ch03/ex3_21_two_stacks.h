@@ -5,7 +5,7 @@ constexpr int EmptyTOS = -1;
 constexpr int MinStackSize = 5;
 
 struct StackRecord {
-	StackRecord() = default;
+	StackRecord() :capacity(0), top_of_stack1(0), top_of_stack2(0), array(nullptr) {}
 	StackRecord(int max) :capacity(max), top_of_stack1(EmptyTOS), top_of_stack2(capacity)
 			{ array = new int[capacity]; }
 

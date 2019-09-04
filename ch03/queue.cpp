@@ -58,9 +58,17 @@ void Queue::Dequeue()
 	queue->size--;
 }
 
+int Queue::Front() const
+{
+	if (!IsEmpty())
+		return queue->array[queue->front];
+	throw std::runtime_error("Empty queue");
+	return 0;
+}
+
 int Queue::FrontAndDequeue()
 {
-	int value = queue->array[queue->front];
+	int value = Front();
 	Dequeue();
 	return value;
 }

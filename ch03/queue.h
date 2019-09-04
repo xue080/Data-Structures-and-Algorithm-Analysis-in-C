@@ -6,7 +6,7 @@
 
 struct QueueRecord {
 	QueueRecord() = default;
-	QueueRecord(int max) :capacity(max) { front = rear = 1; size = 0; array = new int[capacity]; }
+	QueueRecord(int max) :capacity(max) { front = 1; rear = 0; size = 0; array = new int[capacity]; }
 
 	int capacity;
 	int front;

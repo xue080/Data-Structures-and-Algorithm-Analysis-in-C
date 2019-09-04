@@ -5,7 +5,7 @@
 #define _QUEUE_H
 
 struct QueueRecord {
-	QueueRecord() = default;
+	QueueRecord() :capacity(0), front(1), rear(0), size(0), array(nullptr) {}
 	QueueRecord(int max) :capacity(max) { front = 1; rear = 0; size = 0; array = new int[capacity]; }
 
 	int capacity;

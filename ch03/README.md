@@ -19,7 +19,8 @@ Array Version : [hpp](https://github.com/seineo/Data-Structures-and-Algorithm-An
 
 ## 3.4.2 Exercise : Implementation of Queue
 
-[hpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue.h) [cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue.cpp) [test](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue_test.cpp)
+List Version : [hpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue_list.h) [cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue_list.cpp) [test](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue_list_test.cpp)  
+Array Version : [hpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue.h) [cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue.cpp) [test](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/queue_test.cpp)
 
 ***
 
@@ -70,7 +71,7 @@ void PrintLots(const LinkedList &L, const LinkedList &P)
 
 ## Exercise 3.3
 
-Singly linked list: (before_p is the element before the two adjacent elements(p and after_p) are to swapped.)  
+Singly linked list: (*before_p* is the element before the two adjacent elements(*p* and *after_p*) are to swapped.)  
 ```cpp
 void SinglyLinkedList::Swap(Node* before_p)
 {
@@ -84,7 +85,7 @@ void SinglyLinkedList::Swap(Node* before_p)
 }
 ```
 
-Doubly linked list:(p and after_p are the two adjacent elements are to swapped)  
+Doubly linked list:(*p* and *after_p* are the two adjacent elements are to swapped)  
 Assume that the class Node has two member `Node* previous` and `Node* next`
 ```cpp
 void DoublyLinkedList::Swap(Node* p)
@@ -178,7 +179,7 @@ LinkedList Union(const LinkedList &L1, const LinkedList &L2)
 ## Exercise 3.10
 
 **a. Write a program with disposal of cells**  
-Note that the `LinkedList` in the function below is a circular list. Just need to change the line 25 in `List.h` to  
+Note that the *LinkedList* in the function below is a circular list. Just need to change the line 25 in `List.h` to  
 ```cpp
 LinkedList() : count(0) { head->next = head; }
 ```  
@@ -284,7 +285,8 @@ I think use array is easier and more effective than using list, so I post array 
 
 ## Exercise 3.14
 
-[GraphAdjList for undirected graph](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_14_graph_adjlist.cpp)
+[GraphAdjList for undirected graph](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_14_graph_adjlist.cpp)  
+[Reference(Chinese)](https://blog.csdn.net/jnu_simba/article/details/8866844)
 
 ## Exercise 3.15
 
@@ -427,6 +429,24 @@ string PostfixToInfix(const string& str)
 }
 ```
 
+## Exercise 3.21
+
+[hpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_21_two_stacks.h) [cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_21_two_stacks.cpp) [test](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_21_two_stacks_test.cpp)
 
 
+## Exercise 3.22
+
+Let E be the extended stack(implemented with two stacks). One stack, called S, used to perform *Push* and *Pop*, and another, called M, used to perform *FindMin*. When we perform *Push(x)* in E, we perform *Push(x)* in S indeed. If x is smaller than or equal to the top element in M, we also perform *Push(x)* in M. To implement *Pop()* in E, we perform *Pop()* in S. If equals to the top element of M, we also *Pop()* in M. *FindMin()* just return the top element of M.
+
+## Exercise 3.23
+
+One grow from the bottom up, another from the top down, and the third in the middle grow in arbitrary direction. If the third one collides with either of the other two, it needs to be moved —— its center should be halfway between the tops of the other two stacks.
+
+## Exercise 3.24
+
+Stack space will not run out, but the routine will not terminate in a reasonable amount of time.
+
+## Exercise 3.25
+
+[3.4.2 Exercise](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch03#342-exercise--implementation-of-queue)
 

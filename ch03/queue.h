@@ -27,7 +27,7 @@ public:
 	void MakeEmpty();
 	void Enqueue(int x);
 	void Dequeue();
-	int Front() const { return queue->array[queue->front]; }
+	int Front() const;
 	int FrontAndDequeue();
 private:
 	int Succ(int);  //private factory function

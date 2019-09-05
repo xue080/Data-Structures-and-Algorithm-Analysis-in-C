@@ -450,3 +450,6 @@ Stack space will not run out, but the routine will not terminate in a reasonable
 
 [3.4.2 Exercise](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch03#342-exercise--implementation-of-queue)
 
+## Exercise 3.26
+
+[hpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_26_deque.h) [cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_26_deque.cpp) [test](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/ex3_26_deque_test.cpp)

@@ -11,11 +11,18 @@ Queue::Queue(const Queue& q):size(q.size)
 		to_copy = to_copy->next;
 		p = p->next;
 	}
+	if (!q.IsEmpty())
+		front = head->next;
+	else
+		front = nullptr;
+	rear = p;
 }
 
 Queue& Queue::operator=(Queue q)
 {
 	std::swap(head, q.head);
+	std::swap(front, q.front);
+	std::swap(rear, q.rear);
 	std::swap(size, q.size);
 	return *this;
 }
@@ -23,6 +30,7 @@ Queue& Queue::operator=(Queue q)
 Queue::~Queue()
 {
 	MakeEmpty();
+	delete head;
 }
 
 void Queue::MakeEmpty()
@@ -33,15 +41,19 @@ void Queue::MakeEmpty()
 		delete p->next;
 		p->next = the_next;
 	}
+	front = rear = nullptr;
 	size = 0;
 }
 
 void Queue::Enqueue(int x)
 {
-	Node* p = head;
-	while (p->next)
-		p = p->next;
-	p->next = new Node(x);
+	Node* p = new Node(x);
+	if (IsEmpty()) {
+		head->next = front = rear = p;
+	} else {
+		rear->next = p;
+		rear = rear->next;
+	}
 	size++;
 }
 
@@ -49,17 +61,21 @@ void Queue::Dequeue()
 {
 	if (IsEmpty())
 		throw std::runtime_error("Empty queue");
-	Node* p = head;
-	Node* the_next = p->next->next;
-	delete p->next;
-	p->next = the_next;
+	if (front == rear) {
+		delete front;
+		head->next = front = rear = nullptr;
+	} else {
+		Node* the_next = front->next;
+		delete front;
+		head->next = front = the_next;
+	}
 	size--;
 }
 
 int Queue::Front() const
 {
 	if (!IsEmpty())
-		return head->next->data;
+		return front->data;
 	throw std::runtime_error("Empty queue");
 	return 0;
 }
@@ -69,26 +85,4 @@ int Queue::FrontAndDequeue()
 	int value = Front();
 	Dequeue();
 	return value;
-}
-
-std::istream& operator>>(std::istream &is, Queue &q)
-{
-	int x;
-	size_t cnt = 0;
-	while (is >> x) {
-		cnt++;
-		q.Enqueue(x);
-	}
-	q.size = cnt;
-	return is;
-}
-
-std::ostream& operator<<(std::ostream &os, const Queue &q)
-{
-	Node* p = q.head;
-	while (p->next) {
-		os << p->next->data << " ";
-		p = p->next;
-	}
-	return os;
 }

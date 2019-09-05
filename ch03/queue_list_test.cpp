@@ -5,29 +5,27 @@ using namespace std;
 int main()
 {
 	Queue q;
-	cin >> q;
-	cout << q << endl;
-	q.Dequeue();
-	q.Enqueue(10);
-	cout << q << endl;
+	for (int i = 1; i != 5; ++i)
+		q.Enqueue(i);
 	cout << q.Front() << endl;
-	cout << q.FrontAndDequeue() << endl;
-	cout << q << endl;
-	q.MakeEmpty();
+	q.Enqueue(5);
+	for (int i = 0; i != 3; ++i)
+		q.Dequeue();
 	cout << boolalpha << q.IsEmpty() << endl;
-	cout << q << endl;
+	cout << q.FrontAndDequeue() << endl;
+	Queue q2(q);
+	cout << q2.Front() << endl;
+	Queue q3 = q2;
+	cout << q3.Front() << endl;
+	q3.MakeEmpty();
+	cout << boolalpha << q3.IsEmpty() << endl;
 	return 0;
 }
 
-//input:
-//1 2 3 4 5
-//^Z
-
 //output:
-//1 2 3 4 5
-//2 3 4 5 10
-//2
-//2
-//3 4 5 10
+//1
+//false
+//4
+//5
+//5
 //true
-//

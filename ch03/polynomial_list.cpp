@@ -26,6 +26,7 @@ Polynomial::~Polynomial()
 		delete p;
 		p = temp;
 	}
+	delete head;
 }
 
 Polynomial operator+(const Polynomial &poly1, const Polynomial &poly2)

@@ -20,6 +20,7 @@ Stack& Stack::operator=(Stack stack)
 Stack::~Stack()
 {
 	MakeEmpty();
+	delete head;
 }
 
 int Stack::Top() const

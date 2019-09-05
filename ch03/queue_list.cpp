@@ -11,11 +11,12 @@ Queue::Queue(const Queue& q):size(q.size)
 		to_copy = to_copy->next;
 		p = p->next;
 	}
-	if (!q.IsEmpty())
+	if (!q.IsEmpty()) {
 		front = head->next;
+		rear = p;
+	}
 	else
-		front = nullptr;
-	rear = p;
+		front = rear = nullptr;
 }
 
 Queue& Queue::operator=(Queue q)

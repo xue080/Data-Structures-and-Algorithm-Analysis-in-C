@@ -13,10 +13,8 @@ struct Node
 };
 
 class Queue {
-	friend std::istream& operator>>(std::istream&, Queue&);
-	friend std::ostream& operator<<(std::ostream&, const Queue&);
 public:
-	Queue() :size(0) {}
+	Queue() :front(nullptr), rear(nullptr), size(0) {}
 	Queue(const Queue&);
 	Queue& operator=(Queue);
 	~Queue();
@@ -30,6 +28,8 @@ public:
 
 private:
 	Node* head = new Node;
+	Node* front;
+	Node* rear;
 	int size;
 };
 

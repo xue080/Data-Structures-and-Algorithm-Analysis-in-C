@@ -23,6 +23,7 @@ LinkedList& LinkedList::operator=(LinkedList source)
 LinkedList::~LinkedList()
 {
 	DeleteList();
+	delete head;
 }
 
 Node* LinkedList::Find(int x)

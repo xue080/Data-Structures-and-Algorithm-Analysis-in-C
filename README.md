@@ -1,6 +1,5 @@
 # Solutions to Exercises
 ## Notes
-* Finished in C++ 11.
 * Use IDE : `Visual Studio 2017 Community` / text editor : `Sublime Text 3`.
 * Solutions to mathematical exercises are `omitted`(Because formulas are hard to write down here).
 * I would like to know about `errors in my answers`
@@ -9,7 +8,7 @@
 * [Chapter 1: Introduction](https://github.com/seineo/Solutions-for-Data-Structures-and-Algorithm-Analysis-in-C-2th-exercises/blob/master/ch01/README.md)
 * [Chapter 2: Algorithm Analysis](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/README.md)
 * [Chapter 3: Lists, Stacks, and Queues](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/README.md)
-* Chapter 4: Trees
+* [Chapter 4: Trees](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch04/README.md)
 * Chapter 5: Hashing 
 * Chapter 6: Priority Queues(Heaps)
 * Chapter 7: Sorting 

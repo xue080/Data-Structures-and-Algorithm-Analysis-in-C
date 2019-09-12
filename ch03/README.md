@@ -71,7 +71,7 @@ void PrintLots(const LinkedList &L, const LinkedList &P)
 
 ## Exercise 3.3
 
-Singly linked list: (*before_p* is the element before the two adjacent elements(*p* and *after_p*) are to swapped.)  
+Singly linked list: (*before_p* is the element before the two adjacent elements(*p* and *after_p*) to be swapped.)  
 ```cpp
 void SinglyLinkedList::Swap(Node* before_p)
 {

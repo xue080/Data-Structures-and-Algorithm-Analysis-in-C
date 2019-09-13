@@ -169,7 +169,7 @@ std::ostream& operator<<(std::ostream& os, const SearchTree& st)
 	return os;
 }
 
-void SearchTree::Print(std::ostream& os, const Tree& root) const
+void SearchTree::Print(std::ostream& os, const Tree& root) const 
 {
 	if (root) {
 		os << root->data << " ";

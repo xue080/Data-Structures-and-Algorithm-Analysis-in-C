@@ -234,7 +234,7 @@ std::ostream& operator<<(std::ostream& os, const AvlTree& t)
 	return os;
 }
 
-void AvlTree::Print(std::ostream& os, const Tree& root) const
+void AvlTree::Print(std::ostream& os, const Tree& root) const 
 {
 	if (root) {
 		os << root->data << " ";

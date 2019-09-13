@@ -130,7 +130,7 @@ Tree SearchTree::Delete(int x, Tree root)
 		root->data = temp->data;
 		root->right = Delete(root->data, root->right);
 	}
-	else {  //has one or zero children
+	else {  //has one or zero child
 		Position temp = root;
 		if (root->left == nullptr)
 			root = root->right;

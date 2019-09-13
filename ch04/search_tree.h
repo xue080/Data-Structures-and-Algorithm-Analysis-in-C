@@ -44,7 +44,11 @@ private:
 	Position FindMax(Tree);
 	Tree Insert(int, Tree);
 	Tree Delete(int, Tree);
+<<<<<<< HEAD
 	void Print(std::ostream&, const Tree&) const;  //used for operator<<
+=======
+	void Print(std::ostream&, const Tree&) const;  //used for operator<< 
+>>>>>>> 1899dd145270052684403c41608ff9efa7c793c2
 };
 
 #endif // !_SEARCH_TREE_H

@@ -46,5 +46,4 @@ private:
 	Tree Delete(int, Tree);
 	void Print(std::ostream&, const Tree&) const;  //used for operator<<
 };
-
 #endif // !_SEARCH_TREE_H

@@ -57,5 +57,4 @@ private:
 	Tree Insert(int,Tree);
 	Tree Delete(int,Tree);
 };
-
 #endif // !_AVLTREE_H

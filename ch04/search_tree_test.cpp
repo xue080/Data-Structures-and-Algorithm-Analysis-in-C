@@ -21,5 +21,20 @@ int main()
 	t2.MakeEmpty();
 	cout << boolalpha << t2.IsEmpty() << endl;
 	cout << boolalpha << t.IsEmpty() << endl;
-	system("pause");
+	return 0;
 }
+
+//input:
+//2 4 3 5 1
+//^ Z
+
+//output:
+//2 1 4 3 5
+//5 1
+//2 1 4 3
+//true
+//false
+//2
+//2 3
+//true
+//false

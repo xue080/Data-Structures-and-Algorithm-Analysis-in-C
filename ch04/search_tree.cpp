@@ -130,7 +130,7 @@ Tree SearchTree::Delete(int x, Tree root)
 		root->data = temp->data;
 		root->right = Delete(root->data, root->right);
 	}
-	else {  //has one or zero child
+	else {  //has one or zero children
 		Position temp = root;
 		if (root->left == nullptr)
 			root = root->right;
@@ -165,15 +165,15 @@ std::istream& operator>>(std::istream& is, SearchTree& st)
 
 std::ostream& operator<<(std::ostream& os, const SearchTree& st)
 {
-	st.print(os, st.root);
+	st.Print(os, st.root);
 	return os;
 }
 
-void SearchTree::print(std::ostream& os, Tree root) const
+void SearchTree::Print(std::ostream& os, const Tree& root) const
 {
 	if (root) {
 		os << root->data << " ";
-		print(os, root->left);
-		print(os, root->right);
+		Print(os, root->left);
+		Print(os, root->right);
 	}
 }

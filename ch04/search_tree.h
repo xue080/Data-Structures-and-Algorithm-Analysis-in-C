@@ -1,6 +1,3 @@
-//To simplify matters,
-//we assume that the elements in the tree are integers.
-
 #ifndef _SEARCH_TREE_H
 #define _SEARCH_TREE_H
 
@@ -47,7 +44,7 @@ private:
 	Position FindMax(Tree);
 	Tree Insert(int, Tree);
 	Tree Delete(int, Tree);
-	void print(std::ostream&, Tree) const;  //used for operator<<
+	void Print(std::ostream&, const Tree&) const;  //used for operator<<
 };
 
 #endif // !_SEARCH_TREE_H

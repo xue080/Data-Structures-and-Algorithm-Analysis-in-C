@@ -12,7 +12,7 @@
 
 ## Exercise 4.1
 
-**a. root node  **  
+**a. root node**  
 A
 
 **b. leaves nodes**   

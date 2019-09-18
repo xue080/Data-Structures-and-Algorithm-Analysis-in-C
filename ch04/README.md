@@ -13,28 +13,28 @@
 ## Exercise 4.1
 
 **a. root node  **  
-A 
+A
 
-**b. leaves nodes** 
+**b. leaves nodes**   
 G H I L M K
 
 ## Exercise 4.2
 
-There are too many nodes, so just give an example of node `E` as follows.
+There are too many nodes, so just give an example of node `E`.
 
-**a. parent node**  
+**a. Parent node**  
 B 
 
-**b. children**  
+**b. Children**  
 I J 
 
-**c. sibling(s)**   
+**c. Sibling(s)**   
 D 
 
-**d. depth**  
+**d. Depth**  
 2
 
-**e. height**  
+**e. Height**  
 2
 
 ## Exercise 4.3

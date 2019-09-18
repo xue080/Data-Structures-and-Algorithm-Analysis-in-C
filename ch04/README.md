@@ -13,14 +13,17 @@
 ## Exercise 4.1
 
 a. A
-
 b. G H I L M K
 
 ## Exercise 4.2
 
 There are too many nodes, so just give an example of node E as follows.
 
-a. B		b. I J		c. D		d. 2		e. 2
+a. B
+b. I J
+c. D
+d. 2
+e. 2
 
 ## Exercise 4.3
 

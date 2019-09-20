@@ -51,7 +51,7 @@ For each level of the binary tree, if its height is H, the max number of its nod
 
 ## Exercise 4.6
 
-Let A = the number of all nodes, B = the number of full nodes, C = the number of nodes that have one child, L = the number of leaves. Obviously, A = B + C + L. Further, because each node but the root has one incoming pointer from its parent, 2B + C = A. Subtracting yields L - F = 1.
+Let A = the number of all nodes, B = the number of full nodes, C = the number of nodes that have one child, L = the number of leaves. Obviously, A = B + C + L. Further, because each node but the root has one incoming pointer from its parent, 2B + C = A - 1. Subtracting yields L = B + 1.
 
 ##  Exercise 4.7
 

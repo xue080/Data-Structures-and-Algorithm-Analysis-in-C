@@ -12,10 +12,10 @@
 
 ## Exercise 4.1
 
-**a. root node**  
+**a. Root node**  
 A
 
-**b. leaves nodes**   
+**b. Leaves nodes**   
 G H I L M K
 
 ## Exercise 4.2
@@ -78,4 +78,98 @@ Postfix expression : a b * c d + * e -
 ## Exercise 4.10 ~ 4.11
 
 [4.3 Implementation](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch04#43--implementation-of-binary-search-tree)
+
+## Exercise 4.12
+
+**a. Random insert**  
+Repeatedly generate random integers until an unused one is found. If there are N elements already in the tree, then M - N are not, and the probability of finding one of these if (M - N) / M. So the expected number of trials is M / (M - N), which is α / (α - 1).
+
+**b. Random delete**  
+It is similar to question a. The probability of finding one is N / M. So the expected number of  trails is M / N, which is α.
+
+**c. A good choice of α**  
+From question a and b, we can learn that the whole running time of these two operations is α + α / (α - 1). Let the differentiation of it equals 0, then we can get α = 2.
+
+## Exercise 4.13
+
+**a. Replace with the largest node in left subtree**  
+
+```c++
+/*...*/
+else if (root->left && root->right) {
+	Position temp = FindMax(root->left);
+	root->data = temp->data;
+	root->left = Delete(root->data, root->left);
+}
+/*...*/
+```
+
+**b. Alternately **  
+
+```c++
+/*...*/
+else if (root->left && root->right) {
+	Position temp;
+	bool flag = true;
+	if (flag) {
+		temp = FindMax(root->left);
+		root->data = temp->data;
+		root->left = Delete(root->data, root->left);
+		flag = false;
+	} else {
+		temp = FindMin(root->right);
+		root->data = temp->data;
+		root->right = Delete(root->data, root->right);
+		flag = true;
+	}
+}
+/*...*/
+```
+
+**c. Randomly**  
+
+```c++
+//Need include the headers <ctime> and <random>
+
+/*...*/
+int random_num(int min,int max)
+{
+	static std::default_random_engine e(time(NULL));
+	static std::uniform_int_distribution<unsigned> u(min,max);
+	return u(e);
+}
+
+else if (root->left && root->right) {
+    Position temp;
+    int choice = random_num(0,1);
+    if(choice) {
+        temp = FindMax(root->left);
+		root->data = temp->data;
+		root->left = Delete(root->data, root->left);
+    } else {
+        temp = FindMin(root->right);
+		root->data = temp->data;
+		root->right = Delete(root->data, root->right);
+    }
+}
+/*...*/
+```
+
+Strategy b seems to give the most balance, and a takes the least CPU time.
+
+## Exercise 4.14
+
+The answer is in the book. `Section 4.3.6. Average-Case Analysis`
+
+## Exercise 4.15
+
+**a. Precise expression**  
+N(0) = 1, N(1) = 2, N(H) = N(H-1) + N(H-2) + 1
+
+**b. For height 15**  
+N(H) = F(H+2) - 1
+
+## Exercise 4.16
+
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_16.png?raw=true)
 

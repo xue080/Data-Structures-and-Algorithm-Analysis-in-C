@@ -47,8 +47,8 @@ private:
 	//for Insert and Delete operation, return new root after rotation   
 	Position SingleRotateWithLeft(Position);  
 	Position SingleRotateWithRight(Position);
-	Position DoubleRatateWithLeft(Position);
-	Position DoubleRatateWithRight(Position);
+	Position DoubleRotateWithLeft(Position);
+	Position DoubleRotateWithRight(Position);
 
 	void MakeEmpty(Tree&);
 	Position Find(int,Tree);
@@ -57,4 +57,5 @@ private:
 	Tree Insert(int,Tree);
 	Tree Delete(int,Tree);
 };
+
 #endif // !_AVLTREE_H

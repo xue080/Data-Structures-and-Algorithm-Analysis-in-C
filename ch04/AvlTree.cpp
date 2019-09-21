@@ -1,6 +1,7 @@
 #include"AvlTree.h"
 #include<stdexcept>
 #include<algorithm>
+#include<stack>
 
 AvlTree::AvlTree(const AvlTree& t)
 {
@@ -112,7 +113,7 @@ Tree AvlTree::Insert(int x, Tree root)
 			if (x < root->left->data)
 				root = SingleRotateWithLeft(root);
 			else
-				root = DoubleRatateWithLeft(root);
+				root = DoubleRotateWithLeft(root);
 		}
 	}
 	else if (x > root->data) {
@@ -121,7 +122,7 @@ Tree AvlTree::Insert(int x, Tree root)
 			if (x > root->right->data)
 				root = SingleRotateWithRight(root);
 			else
-				root = DoubleRatateWithRight(root);
+				root = DoubleRotateWithRight(root);
 		}
 	}
 	//else x is in the tree already, we'll do nothing
@@ -130,6 +131,47 @@ Tree AvlTree::Insert(int x, Tree root)
 	root->height = std::max(Height(root->left), Height(root->right)) + 1; 
 	return root;
 }
+
+//Tree AvlTree::Insert(int x, Tree root)
+//{
+//	Tree temp = root;
+//	std::stack<Tree> trees;  //use stack to collect the nodes on the path
+//	while (temp) {
+//		trees.push(temp);
+//		if (x < temp->data)
+//			temp = temp->left;
+//		else if (x > temp->data)
+//			temp = temp->right;
+//	}
+//	temp = new AvlNode(x);   //the place to insert
+//	Tree son = temp;  
+//	while (!trees.empty()) {  
+//		Tree father = trees.top();  
+//		if (son->data < father->data)   //each time connect the father node with its child node
+//			father->left = son;
+//		else
+//			father->right = son;
+//		if (son == father->left) {  //²åÔÚÁË×ó±ß
+//			if (Height(father->left) - Height(father->right) == 2) {
+//				if (x < father->left->data)
+//					father = SingleRotateWithLeft(father);
+//				else
+//					father = DoubleRatateWithLeft(father);
+//			}
+//		} else {  //²åÔÚÓÒ±ß
+//			if (Height(father->right) - Height(father->left) == 2) {
+//				if (x > father->right->data)
+//					father = SingleRotateWithRight(father);
+//				else
+//					father = DoubleRatateWithRight(father);
+//			}
+//		}
+//		father->height = std::max(Height(father->left), Height(father->right)) + 1;
+//		son = father;
+//		trees.pop();
+//	}
+//	return son;
+//}
 
 Position AvlTree::SingleRotateWithLeft(Position k2)
 {
@@ -153,13 +195,13 @@ Position AvlTree::SingleRotateWithRight(Position k2)
 	return k1;
 }
 
-Position AvlTree::DoubleRatateWithLeft(Position k3)
+Position AvlTree::DoubleRotateWithLeft(Position k3)
 {
 	k3->left = SingleRotateWithRight(k3->left);
 	return SingleRotateWithLeft(k3);
 }
 
-Position AvlTree::DoubleRatateWithRight(Position k3)
+Position AvlTree::DoubleRotateWithRight(Position k3)
 {
 	k3->right = SingleRotateWithLeft(k3->right);
 	return SingleRotateWithRight(k3);
@@ -179,7 +221,7 @@ Tree AvlTree::Delete(int x, Tree root)
 		root->left = Delete(x, root->left);
 		if (Height(root->right) - Height(root->left) == 2) {
 			if (x < root->left->data)
-				root = DoubleRatateWithLeft(root);
+				root = DoubleRotateWithLeft(root);
 			else
 				root = SingleRotateWithLeft(root);
 		}
@@ -188,7 +230,7 @@ Tree AvlTree::Delete(int x, Tree root)
 		root->right = Delete(x, root->right);
 		if (Height(root->left) - Height(root->right) == 2) {
 			if (x > root->right->data)
-				root = DoubleRatateWithRight(root);
+				root = DoubleRotateWithRight(root);
 			else
 				root = SingleRotateWithRight(root);
 		}
@@ -234,7 +276,7 @@ std::ostream& operator<<(std::ostream& os, const AvlTree& t)
 	return os;
 }
 
-void AvlTree::Print(std::ostream& os, const Tree& root) const 
+void AvlTree::Print(std::ostream& os, const Tree& root) const
 {
 	if (root) {
 		os << root->data << " ";

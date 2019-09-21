@@ -104,7 +104,7 @@ else if (root->left && root->right) {
 /*...*/
 ```
 
-**b. Alternately **  
+**b. Alternately**
 
 ```c++
 /*...*/
@@ -172,4 +172,116 @@ N(H) = F(H+2) - 1
 ## Exercise 4.16
 
 ![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_16.png?raw=true)
+
+## Exercise 4.17
+
+Can be verified by induction.
+
+## Exercise 4.18 
+
+[Check AVL Tree cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch04/README.md#44--implementation-of-avl-tree)
+
+## Exercise 4.19
+
+```c++
+Tree AvlTree::Insert(int x, Tree root)
+{
+	Tree temp = root;
+	std::stack<Tree> trees;  //use stack to collect the nodes on the path
+	while (temp) {
+		trees.push(temp);
+		if (x < temp->data)
+			temp = temp->left;
+		else if (x > temp->data)
+			temp = temp->right;
+	}
+	temp = new AvlNode(x);   //the place to insert
+	Tree son = temp;  
+	while (!trees.empty()) {  
+		Tree father = trees.top();  
+		if (son->data < father->data)   //each time connect the father node with its child node
+			father->left = son;
+		else
+			father->right = son;
+		if (son == father->left) {  //插在了左边
+			if (Height(father->left) - Height(father->right) == 2) {
+				if (x < father->left->data)
+					father = SingleRotateWithLeft(father);
+				else
+					father = DoubleRatateWithLeft(father);
+			}
+		} else {  //插在右边
+			if (Height(father->right) - Height(father->left) == 2) {
+				if (x > father->right->data)
+					father = SingleRotateWithRight(father);
+				else
+					father = DoubleRatateWithRight(father);
+			}
+		}
+		father->height = std::max(Height(father->left), Height(father->right)) + 1;
+		son = father;
+		trees.pop();
+	}
+	return son;
+}
+```
+
+## Exercise 4.20
+
+[Check AVL Tree cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch04/README.md#44--implementation-of-avl-tree)
+
+## Exercise 4.21
+
+**a. The number of bits required per node**  
+log log N
+
+**b. The smallest AVL tree that overflows an 8-bit height counter**  
+Let log log N = 8, then log N = 256, which means the height of the smallest AVL tree is 256. 
+
+## Exercise 4.22
+
+Just give the implementation of `DoubleRotateWithLeft ` . The another is mirror image of it.
+
+```c++
+Position AvlTree::DoubleRotateWithLeft(Position k3)
+{
+	Position k2 = k3->left;
+	Position k1 = k2->right;
+	k2->right = k1->left;
+	k1->left = k2;
+	k3->left = k1->right;
+	k1->right = k3;
+	k2->height = std::max(Height(k2->left), Height(k2->right)) + 1;
+	k3->height = std::max(Height(k3->left), Height(k3->right)) + 1;
+	k1->height = std::max(Height(k2), Height(k3)) + 1;
+	return k1;
+}
+
+```
+
+
+
+## Exercise 4.23
+
+After accessing 3 :
+
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_23_1.png?raw=true)
+
+After accessing 9 :
+
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_23_2.png?raw=true)
+
+After accessing 1 :
+
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_23_3.png?raw=true)
+
+After accessing 5 :
+
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_23_4.png?raw=true)
+
+## Exercise 4.24
+
+After deleting 6 :
+
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_24.png?raw=true)
 

@@ -372,5 +372,5 @@ SearchTree SearchTree::MakeRandomSearchTree(int N)
 //	cout << t << std::endl;
 ```
 
-The running time is O(log N)
+The running time is O(log N).
 

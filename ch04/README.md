@@ -285,3 +285,92 @@ After deleting 6 :
 
 ![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_24.png?raw=true)
 
+## Exercise 4.25
+
+a. 523776
+
+b. 262166, 133114, 68216, 36836, 21181, 13873
+
+## Exercise 4.28
+
+**a. The number of nodes in T**  
+
+```c++
+int CountNodes(TreeNode* T)
+{
+    if(T == nullptr)
+        return 0;
+    else
+        return 1 + CountNodes(T->left) + CountNodes(T->right);
+}
+```
+
+**b. The number of leaves in T**
+
+```c++
+int CountLeaves(TreeNode* T)
+{
+    if(T == nullptr)
+        return 0;
+    else if(T->left == nullptr && T->right == nullptr)
+        return 1;
+    else
+        return CountLeaves(T->left) + CountLeaves(T->right);
+}
+```
+
+**c. The number of full nodes in T**
+
+```c++
+int CountFullNodes(TreeNOde* T)
+{
+    if(T == nullptr)
+        return 0;
+    else if(T->left && T->right)
+        return 1 + CountFullNodes(T->left) + CountFullNodes(T->right);
+    else 
+        return CountFullNodes(T->left) + CountFullNodes(T->right);
+}
+```
+
+## Exercise 4.29
+
+```c++
+//Make it a member function of class SearchTree
+//Need include headers <random> and <ctime>
+int RandomInt(int lower, int upper)
+{
+	std::default_random_engine e(time(NULL));
+	std::uniform_int_distribution<unsigned> u(lower, upper);
+	return u(e);
+}
+
+Tree SearchTree::MakeRandomSearchTree(int lower, int upper)
+{
+	Tree root = nullptr;
+	int value;
+	if (lower <= upper) {
+		value = RandomInt(lower, upper);
+		root = new TreeNode(value);
+		root->left = MakeRandomSearchTree(lower, value - 1);
+		root->right = MakeRandomSearchTree(value + 1, upper);
+	}
+	return root;
+}
+
+SearchTree SearchTree::MakeRandomSearchTree(int N)
+{
+	root = MakeRandomSearchTree(1, N);
+	return *this;
+}
+
+//in test.cpp:
+//	SearchTree t;
+//	int N;
+//	cin >> N;
+//	t.MakeRandomSearchTree(N);
+//	cout << t << std::endl;
+```
+
+The running time is O(log N)
+

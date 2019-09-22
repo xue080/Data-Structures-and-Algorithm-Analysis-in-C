@@ -32,7 +32,7 @@ public:
 	Tree Insert(int);  //returns a pointer to the root of the new tree
 	Tree Delete(int);  //returns a pointer to the root of the new tree
 	int Retrieve(Position);
-
+	SearchTree MakeRandomSearchTree(int N);
 private:
 	Tree root;   //point to the root of the search tree
 
@@ -45,5 +45,8 @@ private:
 	Tree Insert(int, Tree);
 	Tree Delete(int, Tree);
 	void Print(std::ostream&, const Tree&) const;  //used for operator<<
+
+	Tree MakeRandomSearchTree(int lower, int upper);
 };
+
 #endif // !_SEARCH_TREE_H

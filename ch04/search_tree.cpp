@@ -1,5 +1,7 @@
 #include"search_tree.h"
 #include<stdexcept>
+#include<random>
+#include<ctime>
 
 SearchTree::SearchTree(const SearchTree& st)
 {
@@ -117,7 +119,7 @@ Tree SearchTree::Insert(int x)
 	return root;
 }
 
-Tree SearchTree::Delete(int x, Tree root)
+Tree SearchTree::Delete(int x, Tree root)   //use the minimum of right subtree as substitute
 {
 	if (root == nullptr)
 		throw std::runtime_error("Data not found");
@@ -140,6 +142,7 @@ Tree SearchTree::Delete(int x, Tree root)
 	}
 	return root;
 }
+
 
 Tree SearchTree::Delete(int x)
 {
@@ -169,11 +172,37 @@ std::ostream& operator<<(std::ostream& os, const SearchTree& st)
 	return os;
 }
 
-void SearchTree::Print(std::ostream& os, const Tree& root) const 
+void SearchTree::Print(std::ostream& os, const Tree& root) const
 {
 	if (root) {
 		os << root->data << " ";
 		Print(os, root->left);
 		Print(os, root->right);
 	}
+}
+
+int RandomInt(int lower, int upper)
+{
+	std::default_random_engine e(time(NULL));
+	std::uniform_int_distribution<unsigned> u(lower, upper);
+	return u(e);
+}
+
+Tree SearchTree::MakeRandomSearchTree(int lower, int upper)
+{
+	Tree root = nullptr;
+	int value;
+	if (lower <= upper) {
+		value = RandomInt(lower, upper);
+		root = new TreeNode(value);
+		root->left = MakeRandomSearchTree(lower, value - 1);
+		root->right = MakeRandomSearchTree(value + 1, upper);
+	}
+	return root;
+}
+
+SearchTree SearchTree::MakeRandomSearchTree(int N)
+{
+	root = MakeRandomSearchTree(1, N);
+	return *this;
 }

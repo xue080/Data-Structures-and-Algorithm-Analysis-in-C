@@ -179,10 +179,8 @@ LinkedList Union(const LinkedList &L1, const LinkedList &L2)
 ## Exercise 3.10
 
 **a. Write a program with disposal of cells**  
-Note that the *LinkedList* in the function below is a circular list. Just need to change the line 25 in `List.h` to  
-```cpp
-LinkedList() : count(0) { head->next = head; }
-```  
+Note that the *LinkedList* in the function below is a singly circular list. 
+
 Program:  
 ```cpp
 int Josephus(int N,int M)
@@ -201,8 +199,6 @@ int Josephus(int N,int M)
 			if (p == L.Header())   //list with dummy node make it a little bit inelegant
 				p = L.Advance(p);
 		}
-		if (p == L.Header())
-			p = L.Advance(p);
 		Node* the_next = L.Advance(p);
 		L.Delete(p->data);
 		p = the_next;
@@ -230,7 +226,7 @@ int Josephus(int N, int M)
 		p = (p + M) % i;
 	return p + 1;
 }
-```  
+```
 Its running time is O(N).
 
 ## Exercise 3.11

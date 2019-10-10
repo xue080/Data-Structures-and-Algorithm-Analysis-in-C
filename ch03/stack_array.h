@@ -21,7 +21,7 @@ public:           //without I/O this time
 	~Stack();
 
 	bool IsEmpty() const { return stack->top_of_stack == EmptyTOS; }
-	bool IsFull() const { return stack->top_of_stack == stack->capacity; }
+	bool IsFull() const { return stack->top_of_stack == stack->capacity - 1; }
 	void MakeEmpty();
 	void Push(int);
 	int Top() const;

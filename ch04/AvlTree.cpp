@@ -151,14 +151,14 @@ Tree AvlTree::Insert(int x, Tree root)
 //			father->left = son;
 //		else
 //			father->right = son;
-//		if (son == father->left) {  //²åÔÚÁË×ó±ß
+//		if (son == father->left) { 
 //			if (Height(father->left) - Height(father->right) == 2) {
 //				if (x < father->left->data)
 //					father = SingleRotateWithLeft(father);
 //				else
 //					father = DoubleRatateWithLeft(father);
 //			}
-//		} else {  //²åÔÚÓÒ±ß
+//		} else { 
 //			if (Height(father->right) - Height(father->left) == 2) {
 //				if (x > father->right->data)
 //					father = SingleRotateWithRight(father);
@@ -195,11 +195,24 @@ Position AvlTree::SingleRotateWithRight(Position k2)
 	return k1;
 }
 
-Position AvlTree::DoubleRotateWithLeft(Position k3)
+Position AvlTree::DoubleRotateWithLeft(Position k3)  
 {
 	k3->left = SingleRotateWithRight(k3->left);
 	return SingleRotateWithLeft(k3);
 }
+//Position AvlTree::DoubleRotateWithLeft(Position k3) //Not use function `SingleRotate()`
+//{
+//	Position k2 = k3->left;
+//	Position k1 = k2->right;
+//	k2->right = k1->left;
+//	k1->left = k2;
+//	k3->left = k1->right;
+//	k1->right = k3;
+//	k2->height = std::max(Height(k2->left), Height(k2->right)) + 1;
+//	k3->height = std::max(Height(k3->left), Height(k3->right)) + 1;
+//	k1->height = std::max(Height(k2), Height(k3)) + 1;
+//	return k1;
+//}
 
 Position AvlTree::DoubleRotateWithRight(Position k3)
 {

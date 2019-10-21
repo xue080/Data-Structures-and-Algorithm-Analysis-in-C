@@ -306,14 +306,11 @@ Tree AvlTree::GenMinTree(int height, int& elem)
 		root->left = GenMinTree(height - 1, elem);
 		root->data = ++elem;
 		root->right = GenMinTree(height - 2, elem);
-		return root;
-	} else {
-		return nullptr;
-	}
+	} 
+	return root;
 }
-Tree AvlTree::GenMinTree(int height)
+void AvlTree::GenMinTree(int height)
 {
 	int value = 0;
 	root = GenMinTree(height, value);
-	return root;
 }

@@ -25,7 +25,7 @@ int main()
 	AvlTree t3;
 	t3.GenMinTree(3);
 	cout << t3 << endl;
-	system("pause");
+	return 0;
 }
 
 //input:

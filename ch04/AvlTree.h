@@ -37,7 +37,7 @@ public:
 	Tree Insert(int);
 	Tree Delete(int);
 	int Retrieve(Position);
-	Tree GenMinTree(int);
+	void GenMinTree(int);
 private:
 	Tree root;
 	//all factory functions below

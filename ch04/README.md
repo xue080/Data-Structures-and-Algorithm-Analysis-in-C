@@ -362,10 +362,9 @@ Tree SearchTree::MakeRandomSearchTree(int lower, int upper)
 	return root;
 }
 
-SearchTree SearchTree::MakeRandomSearchTree(int N)
+void SearchTree::MakeRandomSearchTree(int N)
 {
 	root = MakeRandomSearchTree(1, N);
-	return *this;
 }
 
 //in test.cpp:
@@ -377,4 +376,3 @@ SearchTree SearchTree::MakeRandomSearchTree(int N)
 ```
 
 The running time is O(log N).
-

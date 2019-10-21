@@ -376,3 +376,72 @@ void SearchTree::MakeRandomSearchTree(int N)
 ```
 
 The running time is O(log N).
+
+## Exercise 4.30
+
+> The minimum number of nodes, N(h), in an AVL tree of height h is given by N(h) = N(h -1) + N(h - 2). (In section 4.4)
+
+```cpp
+Tree AvlTree::GenMinTree(int height, int& elem)
+{
+	Tree root = nullptr;
+	if (height >= 0) {
+		root = new AvlNode();
+		root->left = GenMinTree(height - 1, elem);
+		root->data = ++elem;
+		root->right = GenMinTree(height - 2, elem);
+	} 
+	return root;
+}
+void AvlTree::GenMinTree(int height)
+{
+	int value = 0;
+	root = GenMinTree(height, value);
+}
+```
+
+## Exercise 4.31
+
+**Algorithm 1(mimics Exercise 4.29)**
+
+```cpp
+Tree SearchTree::PerfectTree(int lower, int upper)
+{
+	Tree root = nullptr;
+	if (lower <= upper) {
+		int value = (lower + upper) / 2;
+		root = new TreeNode(value);
+		root->left = PerfectTree(lower, value - 1);
+		root->right = PerfectTree(value + 1, upper);
+	}
+	return root;
+}
+
+void SearchTree::PerfectTree(int height)
+{
+	root = PerfectTree(1, static_cast<int>(std::pow(2, height + 1)) - 1);
+}
+```
+
+**Algorithm 2(mimics Exercise 4.30)**
+
+```cpp
+Tree SearchTree::PerfectTree(int height, int& elem)
+{
+	Tree root = nullptr;
+	if (height >= 0) {
+		root = new TreeNode();
+		root->left = PerfectTree(height - 1, elem);
+		root->data = ++elem;
+		root->right = PerfectTree(height - 1, elem);
+	}
+	return root;
+}
+
+void SearchTree::PerfectTree(int height)
+{
+	int value = 0;
+	root = PerfectTree(height, value);
+}
+```
+

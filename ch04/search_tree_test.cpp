@@ -9,12 +9,15 @@ int main()
 	t.MakeRandomSearchTree(N);
 	cout << t << endl;
 
+	t.PrintRange(1, 3);
+	cout << endl;
+
 	SearchTree t2;
 	int h;
 	cin >> h;
 	t2.PerfectTree(h);
 	cout << t2 << endl;
-	return 0;
+	system("pause");
 }
 
 //int main()

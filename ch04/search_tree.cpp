@@ -241,3 +241,20 @@ void SearchTree::PerfectTree(int height)
 //	int value = 0;
 //	root = PerfectTree(height, value);
 //}
+
+void SearchTree::PrintRange(Tree t, int lower, int upper)
+{
+	if (t) {
+		if (lower < t->data)
+			PrintRange(t->left, lower, upper);
+		if (t->data >= lower && t->data <= upper)
+			std::cout << t->data << " ";
+		if (t->data < upper)
+			PrintRange(t->right, lower, upper);
+	}
+}
+
+void SearchTree::PrintRange(int lower, int upper)
+{
+	PrintRange(root, lower, upper);
+}

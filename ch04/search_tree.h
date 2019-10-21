@@ -34,6 +34,7 @@ public:
 	int Retrieve(Position);
 	void MakeRandomSearchTree(int N);
 	void PerfectTree(int);
+	void PrintRange(int, int);
 private:
 	Tree root;   //point to the root of the search tree
 
@@ -49,6 +50,7 @@ private:
 
 	Tree MakeRandomSearchTree(int lower, int upper);
 	Tree PerfectTree(int lower, int upper);
+	void PrintRange(Tree, int, int);
 };
 
 #endif // !_SEARCH_TREE_H

@@ -297,3 +297,23 @@ void AvlTree::Print(std::ostream& os, const Tree& root) const
 		Print(os, root->right);
 	}
 }
+
+Tree AvlTree::GenMinTree(int height, int& elem)
+{
+	Tree root = nullptr;
+	if (height >= 0) {
+		root = new AvlNode();
+		root->left = GenMinTree(height - 1, elem);
+		root->data = ++elem;
+		root->right = GenMinTree(height - 2, elem);
+		return root;
+	} else {
+		return nullptr;
+	}
+}
+Tree AvlTree::GenMinTree(int height)
+{
+	int value = 0;
+	root = GenMinTree(height, value);
+	return root;
+}

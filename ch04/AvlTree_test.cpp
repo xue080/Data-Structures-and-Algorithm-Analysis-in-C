@@ -21,7 +21,11 @@ int main()
 	t2.MakeEmpty();
 	cout << boolalpha << t2.IsEmpty() << endl;
 	cout << boolalpha << t.IsEmpty() << endl;
-	return 0;
+
+	AvlTree t3;
+	t3.GenMinTree(3);
+	cout << t3 << endl;
+	system("pause");
 }
 
 //input:
@@ -38,3 +42,4 @@ int main()
 //2 3
 //true
 //false
+//5 3 2 1 4 7 6

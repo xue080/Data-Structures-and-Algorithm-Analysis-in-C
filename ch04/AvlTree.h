@@ -37,10 +37,9 @@ public:
 	Tree Insert(int);
 	Tree Delete(int);
 	int Retrieve(Position);
-
+	Tree GenMinTree(int);
 private:
 	Tree root;
-
 	//all factory functions below
 	void Copy(Tree, Tree&);  //for copy constructor
 	void Print(std::ostream&, const Tree&) const;
@@ -56,6 +55,7 @@ private:
 	Position FindMax(Tree);
 	Tree Insert(int,Tree);
 	Tree Delete(int,Tree);
+	Tree GenMinTree(int, int&);
 };
 
 #endif // !_AVLTREE_H

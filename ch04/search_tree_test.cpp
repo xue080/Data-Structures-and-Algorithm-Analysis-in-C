@@ -8,7 +8,7 @@ int main()
 	cin >> N;
 	t.MakeRandomSearchTree(N);
 	cout << t << std::endl;
-	system("pause");
+	return 0;
 }
 
 //int main()
@@ -31,7 +31,7 @@ int main()
 //	t2.MakeEmpty();
 //	cout << boolalpha << t2.IsEmpty() << endl;
 //	cout << boolalpha << t.IsEmpty() << endl;
-//	system("pause");
+//	return 0;
 //}
 
 //input:

@@ -466,3 +466,21 @@ void SearchTree::PrintRange(int lower, int upper)
 }
 ```
 
+## Exercise 4.35
+
+```cpp
+void SearchTree::LevelOrderTraverse()
+{
+	std::queue<Tree> q;
+	q.push(root);
+	while (!q.empty()) {
+		std::cout << q.front()->data << " ";
+		if (q.front()->left)
+			q.push(q.front()->left);
+		if (q.front()->right)
+			q.push(q.front()->right);
+		q.pop();
+	}
+}
+```
+

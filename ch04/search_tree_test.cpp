@@ -17,8 +17,21 @@ int main()
 	cin >> h;
 	t2.PerfectTree(h);
 	cout << t2 << endl;
+	
+	t2.LevelOrderTraverse();
+	cout << endl;
 	system("pause");
 }
+
+//intput:
+//5
+//3
+
+//output:
+//4 2 1 3 5
+//1 2 3
+//8 4 2 1 3 6 5 7 12 10 9 11 14 13 15
+//8 4 12 2 6 10 14 1 3 5 7 9 11 13 15
 
 //int main()
 //{

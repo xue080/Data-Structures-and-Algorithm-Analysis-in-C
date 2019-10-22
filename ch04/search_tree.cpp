@@ -2,6 +2,7 @@
 #include<stdexcept>
 #include<random>
 #include<ctime>
+#include<queue>
 
 SearchTree::SearchTree(const SearchTree& st)
 {
@@ -257,4 +258,18 @@ void SearchTree::PrintRange(Tree t, int lower, int upper)
 void SearchTree::PrintRange(int lower, int upper)
 {
 	PrintRange(root, lower, upper);
+}
+
+void SearchTree::LevelOrderTraverse()
+{
+	std::queue<Tree> q;
+	q.push(root);
+	while (!q.empty()) {
+		std::cout << q.front()->data << " ";
+		if (q.front()->left)
+			q.push(q.front()->left);
+		if (q.front()->right)
+			q.push(q.front()->right);
+		q.pop();
+	}
 }

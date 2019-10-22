@@ -35,6 +35,7 @@ public:
 	void MakeRandomSearchTree(int N);
 	void PerfectTree(int);
 	void PrintRange(int, int);
+	void LevelOrderTraverse();
 private:
 	Tree root;   //point to the root of the search tree
 

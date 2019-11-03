@@ -542,17 +542,17 @@ bool Isomorphic(Tree t1, Tree t2)
 
 ## Exercise 4.45
 
-[Reference(Implementation of Threaded Binary Tree)]( https://www.jianshu.com/p/deb1d2f2549a )
+[Reference(Implementation of Threaded Binary Tree)]( https://www.jianshu.com/p/deb1d2f2549a )  
 [Reference(Insertion)]( https://www.geeksforgeeks.org/threaded-binary-tree-insertion/ )
 
-**a. How to distinguish threads from real children pointers**
+**a. How to distinguish threads from real children pointers**  
 We need a bit field as follows.
 
 ```c++
 typedef enum { Link, Thread } PointerTag;
 ```
 
-**b. insertion and deletion in threaded binary tree**
+**b. insertion and deletion in threaded binary tree**  
 insertion:
 
 ````c++

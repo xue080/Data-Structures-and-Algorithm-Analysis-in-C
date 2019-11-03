@@ -540,3 +540,61 @@ bool Isomorphic(Tree t1, Tree t2)
 }
 ```
 
+## Exercise 4.45
+
+[Reference(Implementation of Threaded Binary Tree)]( https://www.jianshu.com/p/deb1d2f2549a )
+[Reference(Insertion)]( https://www.geeksforgeeks.org/threaded-binary-tree-insertion/ )
+
+**a. How to distinguish threads from real children pointers**
+We need a bit field as follows.
+
+```c++
+typedef enum { Link, Thread } PointerTag;
+```
+
+**b. insertion and deletion in threaded binary tree**
+insertion:
+
+````c++
+//note that `root` is a dummy node(header)
+void SearchTree::TreadInsert(int x)
+{
+	Tree p = root->left;
+	Tree parent = nullptr;
+	while (p != nullptr) {
+		parent = p;
+		if (x < p->data) {
+			if (p->LTag == Link)
+				p = p->left;
+			else
+				break;
+		} else {
+			if (p->RTag == Link)
+				p = p->right;
+			else
+				break;
+		}
+	}
+	Tree temp = new TreeNode(x);
+	temp->LTag = temp->RTag = Thread;
+	if (parent == nullptr) {  //empty tree
+		root->left = temp;
+		root->right = temp;
+		temp->left = root;
+		temp->right = root;
+	}
+	else if (x < parent->data) {
+		temp->left = parent->left;
+		temp->right = parent;
+		parent->LTag = Link;
+		parent->left = temp;
+	}
+	else {
+		temp->left = parent;
+		temp->right = parent->right;
+		parent->RTag = Link;
+		parent->right = temp;
+	}
+}
+````
+

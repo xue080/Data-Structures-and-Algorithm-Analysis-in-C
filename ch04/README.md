@@ -484,3 +484,59 @@ void SearchTree::LevelOrderTraverse()
 }
 ```
 
+## Exercise 4.36
+
+**a. The result of inserting keys**
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_36_a.png?raw=true)
+
+**b. The result of deleteing keys**
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_36_b.png?raw=true)
+
+## Exercise 4.39
+
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex4_39.png?raw=true)
+
+## Exercise 4.40
+
+```c++
+void Traversal(Tree t)
+{
+    if(t) {
+        std::cout << t->data << std::endl;
+        Traversal(t->child);
+        Traversal(t->sibling);
+    }
+}
+```
+
+## Exercise 4.41
+
+```c++
+bool IsSimilar(BinaryTree t1, BinaryTree t2)
+{
+    if(t1 == nullptr || t2 == nullptr)
+        return t1 == nullptr && t2 == nullptr;
+    else 
+        return IsSimilar(t1->left,t2->left) && IsSimilar(t1->right,t2->right);
+}
+```
+
+## Exercise 4.42
+
+```c++
+bool Isomorphic(Tree t1, Tree t2)
+{
+	if((t1 == nullptr) ^ (t2 == nullptr))
+		return false;
+	if(t1 == nullptr && t2 == nullptr)
+		return true;
+	if(t1->data == t2->data) {
+		if(Isomorphic(t1->left,t2->left) && Isomorphic(t1->right,t2->right))
+			return true;
+		if(Isomorphic(t1->left,t2->right) && Isomorphic(t1->right,t2->left))
+			return true;
+	}
+	return false;
+}
+```
+

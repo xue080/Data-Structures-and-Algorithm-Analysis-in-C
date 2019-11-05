@@ -542,9 +542,6 @@ bool Isomorphic(Tree t1, Tree t2)
 
 ## Exercise 4.45
 
-[Reference(Implementation of Threaded Binary Tree)]( https://www.jianshu.com/p/deb1d2f2549a )  
-[Reference(Insertion)]( https://www.geeksforgeeks.org/threaded-binary-tree-insertion/ )
-
 **a. How to distinguish threads from real children pointers**  
 We need a bit field as follows.
 
@@ -598,3 +595,122 @@ void SearchTree::TreadInsert(int x)
 }
 ````
 
+deletion:
+
+```c++
+Position SearchTree::InorderSucc(Position p)
+{
+	if (p->RTag == Thread)
+		return p->right;
+	p = p->right;
+	while (p->left != nullptr) {
+		p = p->left;
+	}
+	return p;
+}
+
+Position SearchTree::InorderPred(Position p)
+{
+	if (p->LTag == Thread)
+		return p->left;
+	p = p->left;
+	while (p->right != nullptr) {
+		p = p->right;
+	}
+	return p;
+}
+
+void SearchTree::CaseA(Position par, Position ptr)
+{
+	if (ptr == par->left) {
+		par->LTag = Thread;
+		par->left = ptr->left;
+	} else {
+		par->RTag = Thread;
+		par->right = ptr->right;
+	}
+	delete ptr;
+	ptr = nullptr;
+}
+
+void SearchTree::CaseB(Position par, Position ptr)
+{
+	Position child;
+	if (ptr->LTag == Link)
+		child = ptr->left;
+	else
+		child = ptr->right;
+	if (par->left == ptr)
+		par->left = child;
+	else
+		par->right = child;
+	Position suc = InorderSucc(ptr);
+	Position pre = InorderPred(ptr);
+	if (ptr->LTag == Link)
+		pre->right = suc;
+	else
+		suc->left = pre;
+	delete ptr;
+	ptr = nullptr;
+}
+
+void SearchTree::CaseC(Position par, Position ptr)
+{
+	Position par_suc = ptr;
+	Position suc = ptr->right;
+	while (suc->left != nullptr) {
+		par_suc = ptr;
+		suc = suc->left;
+	}
+	ptr->data = suc->data;
+	if (suc->RTag == Thread)
+		CaseA(par_suc, suc);
+	else
+		CaseB(par_suc, suc);
+}
+
+void SearchTree::ThreadDelete(int x)
+{
+	Position par = root;
+	Position ptr = root->left;
+	bool found = false;
+	while (ptr != nullptr) {
+		if (x == ptr->data) {
+			found = true;
+			break;
+		}
+		par = ptr;
+		if (x < ptr->data) {
+			if (ptr->LTag == Link)
+				ptr = ptr->left;
+			else
+				break;
+		} else {
+			if (ptr->RTag == Link)
+				ptr = ptr->right;
+			else
+				break;
+		}
+	}
+	if (!found) {
+		std::cerr << "Data not found" << std::endl;
+	} else {
+		if (ptr->LTag == Link && ptr->RTag == Link)
+			CaseC(par, ptr);
+		else if (ptr->LTag == Link)
+			CaseB(par, ptr);
+		else if (ptr->RTag == Link)
+			CaseB(par, ptr);
+		else
+			CaseA(par, ptr);
+	}
+}
+```
+
+**c. The advantage of using threaded trees**  
+By using threaded trees, we can access the predecessor and successor of given node in O(1) time.
+
+**Reference**  
+[Threaded binary tree]( https://www.jianshu.com/p/deb1d2f2549a )  
+[Insertion]( https://www.geeksforgeeks.org/threaded-binary-tree-insertion/ )  
+[Deletion]( https://www.geeksforgeeks.org/threaded-binary-search-tree-deletion/ )

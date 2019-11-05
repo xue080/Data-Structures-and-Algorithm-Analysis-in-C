@@ -9,7 +9,7 @@
 * [Chapter 2: Algorithm Analysis](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/README.md)
 * [Chapter 3: Lists, Stacks, and Queues](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch03/README.md)
 * [Chapter 4: Trees](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch04/README.md)
-* Chapter 5: Hashing 
+* [Chapter 5: Hashing](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch05/README.md) 
 * Chapter 6: Priority Queues(Heaps)
 * Chapter 7: Sorting 
 * Chapter 8: The Disjoint Set ADT

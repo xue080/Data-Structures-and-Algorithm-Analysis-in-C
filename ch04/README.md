@@ -603,7 +603,7 @@ Position SearchTree::InorderSucc(Position p)
 	if (p->RTag == Thread)
 		return p->right;
 	p = p->right;
-	while (p->left != nullptr) {
+	while (p->LTag == Link) {
 		p = p->left;
 	}
 	return p;
@@ -614,7 +614,7 @@ Position SearchTree::InorderPred(Position p)
 	if (p->LTag == Thread)
 		return p->left;
 	p = p->left;
-	while (p->right != nullptr) {
+	while (p->RTag == Link) {
 		p = p->right;
 	}
 	return p;
@@ -625,7 +625,8 @@ void SearchTree::CaseA(Position par, Position ptr)
 	if (ptr == par->left) {
 		par->LTag = Thread;
 		par->left = ptr->left;
-	} else {
+	}
+	else {
 		par->RTag = Thread;
 		par->right = ptr->right;
 	}
@@ -658,8 +659,8 @@ void SearchTree::CaseC(Position par, Position ptr)
 {
 	Position par_suc = ptr;
 	Position suc = ptr->right;
-	while (suc->left != nullptr) {
-		par_suc = ptr;
+	while (suc->LTag == Link) {
+		par_suc = suc;
 		suc = suc->left;
 	}
 	ptr->data = suc->data;
@@ -672,6 +673,7 @@ void SearchTree::CaseC(Position par, Position ptr)
 void SearchTree::ThreadDelete(int x)
 {
 	Position par = root;
+	std::cout << par->data << std::endl;
 	Position ptr = root->left;
 	bool found = false;
 	while (ptr != nullptr) {
@@ -685,7 +687,8 @@ void SearchTree::ThreadDelete(int x)
 				ptr = ptr->left;
 			else
 				break;
-		} else {
+		}
+		else {
 			if (ptr->RTag == Link)
 				ptr = ptr->right;
 			else
@@ -694,7 +697,8 @@ void SearchTree::ThreadDelete(int x)
 	}
 	if (!found) {
 		std::cerr << "Data not found" << std::endl;
-	} else {
+	}
+	else {
 		if (ptr->LTag == Link && ptr->RTag == Link)
 			CaseC(par, ptr);
 		else if (ptr->LTag == Link)
@@ -711,6 +715,7 @@ void SearchTree::ThreadDelete(int x)
 By using threaded trees, we can access the predecessor and successor of given node in O(1) time.
 
 **Reference**  
-[Threaded binary tree]( https://www.jianshu.com/p/deb1d2f2549a )  
-[Insertion]( https://www.geeksforgeeks.org/threaded-binary-tree-insertion/ )  
-[Deletion]( https://www.geeksforgeeks.org/threaded-binary-search-tree-deletion/ )
+[Threaded binary tree(Chinese)]( https://www.jianshu.com/p/deb1d2f2549a )  
+[Insertion(English)]( https://www.geeksforgeeks.org/threaded-binary-tree-insertion/ )  
+[Deletion(English)]( https://www.geeksforgeeks.org/threaded-binary-search-tree-deletion/ )
+(PS: I think the code in the last two reference has some bugs, so I made some modification.)

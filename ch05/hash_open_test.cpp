@@ -30,5 +30,5 @@ int main()
 	else {
 		cerr << "Data not found" << endl;
 	}
-	system("pause");
+	return 0;
 }

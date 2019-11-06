@@ -717,5 +717,6 @@ By using threaded trees, we can access the predecessor and successor of given no
 **Reference**  
 [Threaded binary tree(Chinese)]( https://www.jianshu.com/p/deb1d2f2549a )  
 [Insertion(English)]( https://www.geeksforgeeks.org/threaded-binary-tree-insertion/ )  
-[Deletion(English)]( https://www.geeksforgeeks.org/threaded-binary-search-tree-deletion/ )
+[Deletion(English)]( https://www.geeksforgeeks.org/threaded-binary-search-tree-deletion/ )  
 (PS: I think the code in the last two reference has some bugs, so I made some modification.)
+

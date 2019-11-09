@@ -27,6 +27,19 @@ struct HashTBL {
 			the_lists[i] = new ListNode();
 		}
 	}
+	~HashTBL() {
+		for (size_t i = 0; i != table_size; ++i) {
+			Position p = the_lists[i]->next;
+			while (p != nullptr) {
+				Position temp = p->next;
+				delete p;
+				p = temp;
+			}
+			delete the_lists[i];
+		}
+		delete[]the_lists;
+	}
+
 	size_t NextPrime(size_t num) {
 		while (true) {
 			if (isPrime(num))

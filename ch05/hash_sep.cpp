@@ -83,7 +83,6 @@ void Hash::Delete(Elemtype x)
 void Hash::MakeEmpty()
 {
 	if (hash_table != nullptr) {
-		delete hash_table->the_lists;
 		delete hash_table;
 		hash_table = nullptr;
 	}

@@ -23,9 +23,10 @@ struct HashEntry {
 
 struct HashTbl {
 	HashTbl() = default;
-	HashTbl(size_t size):table_size(size) {
-		the_array = new HashEntry[size];
-		for (size_t i = 0; i != size; ++i)
+	HashTbl(size_t size) {
+		table_size = NextPrime(size);
+		the_array = new HashEntry[table_size];
+		for (size_t i = 0; i != table_size; ++i)
 			the_array[i].info = Empty;
 	}
 

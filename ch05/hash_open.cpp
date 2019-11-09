@@ -31,7 +31,6 @@ Hash::~Hash()
 void Hash::MakeEmpty()
 {
 	if (hash_table != nullptr) {
-		delete hash_table->the_array;
 		delete hash_table;
 		hash_table = nullptr;
 	}
@@ -72,4 +71,15 @@ Elemtype Hash::Retrieve(Position p)
 		return hash_table->the_array[p].data;
 	throw std::runtime_error("Null pointer");
 	return 0;
+}
+
+void Hash::Rehash()
+{
+	HashTable old_table = hash_table;
+	hash_table = new HashTbl(2 * old_table->table_size);
+	for (size_t i = 0; i != old_table->table_size; ++i) {
+		if (old_table->the_array[i].info == Legitimate)
+			Insert(old_table->the_array[i].data);
+	}
+	delete old_table;
 }

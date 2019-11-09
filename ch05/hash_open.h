@@ -29,6 +29,9 @@ struct HashTbl {
 		for (size_t i = 0; i != table_size; ++i)
 			the_array[i].info = Empty;
 	}
+	~HashTbl() {
+		delete[]the_array;
+	}
 
 	size_t NextPrime(size_t num) {
 		while (true) {
@@ -65,6 +68,7 @@ public:
 	Elemtype Retrieve(Position);
 	Position HashFunc(Elemtype x, size_t size) { return x % size; }
 	void MakeEmpty();
+	void Rehash();
 private:
 	HashTable hash_table;
 };

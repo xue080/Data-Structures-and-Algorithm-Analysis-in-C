@@ -1,6 +1,5 @@
 #include<iostream>
 #include"hash_open.h"
-
 using namespace std;
 
 int main()
@@ -24,11 +23,11 @@ int main()
 		cerr << "Data not found" << endl;
 	}
 	h = h2;
-	if (h2.Find(15)) {
-		cout << h2.Retrieve(h2.Find(15)) << endl;
+	if (h.Find(15)) {
+		cout << h.Retrieve(h.Find(15)) << endl;
 	}
 	else {
 		cerr << "Data not found" << endl;
 	}
-	return 0;
+	system("pause");
 }

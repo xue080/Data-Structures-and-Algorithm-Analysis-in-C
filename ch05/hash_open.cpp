@@ -39,7 +39,7 @@ void Hash::MakeEmpty()
 Position Hash::Find(Elemtype x)
 {
 	Position p = HashFunc(x, hash_table->table_size);
-	size_t collision_num = 0;
+	size_t collision_num = 0; 
 	while (hash_table->the_array[p].info != Empty && hash_table->the_array[p].data != x) {
 		p += 2 * ++collision_num - 1;
 		if (p > hash_table->table_size)
@@ -82,4 +82,9 @@ void Hash::Rehash()
 			Insert(old_table->the_array[i].data);
 	}
 	delete old_table;
+}
+
+State Hash::GetPositionState(Position p) const
+{
+	return hash_table->the_array[p].info;
 }

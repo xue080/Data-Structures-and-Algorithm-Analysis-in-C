@@ -69,6 +69,7 @@ public:
 	Position HashFunc(Elemtype x, size_t size) { return x % size; }
 	void MakeEmpty();
 	void Rehash();
+	State GetPositionState(Position) const;
 private:
 	HashTable hash_table;
 };

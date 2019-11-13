@@ -91,3 +91,47 @@ At last, we can get the table as follows :
 | Collision times 3 | 1059           | 195               | 90             |
 
 Obviously, linear probing is the slowest one and double hashing is the fastest one. 
+
+## Exercise 5.4
+
+Let p be the threshold(fraction of table size) at which we rehash to a new table. Let N be the size of original table, then the new table has size N / 2 which contains p * N elements. This new table will require rehashing after either N - p * N insertions or (p * N) / 2 deletions. Let the number of insertions equal to that of deletions, then we can get p = 2 / 3.
+
+## Exercise 5.5
+
+**a. Prove that this strategy can always resolve the collision**  
+Since each table slot will be eventually probed, the collision can be resolved.
+
+**b. Would this strategy be expected to eliminate clustering ?**  
+No, because all elements that hash to the same location will try the same collision resolution sequence.
+
+**c,d The expected time ?**  
+Similar to quadratic probing
+
+**e. Give an efficient algorithm  generate the random sequence**  
+
+```c++
+int RandInt(int beg,int end)        
+{
+	static default_random_engine generator(time(NULL));
+	static uniform_int_distribution<int> distribution(beg,end);
+	return distribution(generator);
+}
+
+void Swap(int* m,int* n)
+{
+	int temp = *m;
+	*m = *n;
+	*n = temp;
+}
+int main()
+{
+    vector<int> A;
+	for(int i = 0;i != N;++i)
+		A.push_back(i);
+	for(int i = 1; i != N;++i)
+		Swap(&A[i],&A[RandInt(0,i)]);
+}
+```
+
+Actually, we have done this in [Exercise 2.7]( https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch02#exercise-27 )(Check it for more details).
+

@@ -29,27 +29,27 @@ Let f(N) = 1 when N is even, and N when N is odd. Likewise, let g(N) = 1 when N 
 
 **b.The running time for several values of N**(Forms are as follows)  
 
-| N |1000000|10000000|100000000|                     
+| N |1000000|10000000|100000000|
 |---|----|-----|------|
-|(1)|0.002|0.018|0.192|  
+|(1)|0.002|0.018|0.192|
 
-| N |1000|10000|100000|                     
+| N |1000|10000|100000|
 |---|----|-----|------|
 |(2)|0.002|0.193|19.175|
 
-| N |100|200|400|                     
+| N |100|200|400|
 |---|----|-----|------|
 |(3)|0.002|0.015|0.122|
 
-| N |1000|10000|100000|                     
+| N |1000|10000|100000|
 |---|----|-----|------|
 |(4)|0.001|0.071|7.173|
 
-| N |50|100|200|                     
+| N |50|100|200|
 |---|----|-----|------|
 |(5)|0.042|1.396|44.178|
 
-| N |100|200|400|                     
+| N |100|200|400|
 |---|----|-----|------|
 |(6)|0.017|0.286|4.458|
 
@@ -62,31 +62,31 @@ by the analysis.
 **a. Prove**   
 Obviously, all algorithms generate legal permutations. The first two algorithms test on no duplicates, and the third one guarantees that by shuffling an array that initially has no duplicates. It is also clear that each permutation is equally likely.
 
-**b.Analysis of the running time**  
+**b. Analysis of the running time**  
 Algorithm-1 : O(N^2logN)  
 Algorithm-2 : O(NlogN)    
 Algorithm-3 : O(N)
-   
-**c.Execute programs**   
+
+**c. Execute programs**   
 Code: [Algorithm-1](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_07_algorithm-1.cpp)    [Algorithm-2](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_07_algorithm-2.cpp)    [Algorithm-3](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/ex2_07_algorithm-3.cpp)
 
-**d.Compare analysis with the actual running times**
+**d. Compare analysis with the actual running times**
 
-| N |250|500|1000|2000|                     
+| N |250|500|1000|2000|
 |---|----|-----|------|----|
 |Algorithm-1|0.001|0.006|0.028|0.113|
 
-| N |2500|5000|10000|20000|40000|80000|                     
-|---|----|-----|------|----|----|-----| 
+| N |2500|5000|10000|20000|40000|80000|
+|---|----|-----|------|----|----|-----|
 |Algorithm-2|0.001|0.002|0.003|0.007|0.015|0.031|
 
-| N |10000|20000|40000|80000|160000|320000|640000|                     
+| N |10000|20000|40000|80000|160000|320000|640000|
 |---|----|-----|------|----|----|-----|----|
-|Algorithm-2|0.001|0.002|0.003|0.005|0.009|0.019|0.038|
+|Algorithm-3|0.001|0.002|0.003|0.005|0.009|0.019|0.038|
 
 Consequently, the running times agree with the preceding analysis.
 
-**e.The worst-case running time**  
+**e. The worst-case running time**  
 Algorithm-1 and Algorithm-2: depend on the sequence of random numbers, so the running time can not be bounded.  
 Algorithm-3: does not depend on the sequence of random numbers, so the worst-case running time is still linear.
 
@@ -185,7 +185,7 @@ The running time : O(NloglogN)
 Principle : Binary system and bit operation  
 [Reference(Chinese)](https://blog.csdn.net/qq_30062589/article/details/79894098)
 ## Exercise 2.17
- 
+
 If N = 0 or N = 1, the number is zero.  
 Let b(N) is the number of ones in the binary representation of N, if N > 1, the number is [log(N)] + b(N) - 1
 

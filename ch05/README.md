@@ -135,3 +135,76 @@ int main()
 
 Actually, we have done this in [Exercise 2.7]( https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch02#exercise-27 )(Check it for more details).
 
+## Exercise 5.6
+
+- **Separate chaining hashing**： Expensive because of dynamic memory allocation.
+- **Linear probing**: Easily implemented, but performance degrades severely as the load factor increases because of primary clustering.
+- **Quadratic probing**: Also easily implemented. Its performance is better than linear probing, but an insertion can fail if there are more than half elements in the table.
+- **Double hashing**: Eliminate primary and secondary clustering, but the computation of the second hash function can be costly.
+
+In conclusion, quadratic probing is the fastest method in practice.
+
+## Exercise 5.7
+
+We give main parts of program here.   
+If you've forgotten the implementations of polynomial and hash table,check these:[Polynomial]( https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch03#327-exercise--the-polynomial-adt ) [HashTable]( https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/tree/master/ch05#54--hash-tableopen-addressing )
+
+```c++
+#define Elemtype Node
+
+Position HashFunc(Elemtype x, size_t size) { return x.expo % 17; }
+
+Position Hash::Find(Elemtype x)
+{
+	Position p = HashFunc(x, hash_table->table_size);
+	size_t collision_num = 0;
+	while (hash_table->the_array[p].info != Empty && hash_table->the_array[p].data.expo != x.expo) {
+		p += 2 * ++collision_num - 1;
+		if (p > hash_table->table_size)
+			p -= hash_table->table_size;
+	}
+	return p;
+}
+
+void Hash::Insert(Elemtype x)
+{
+	Position p = Find(x);
+	if (hash_table->the_array[p].info != Legitimate) {
+		hash_table->the_array[p].info = Legitimate;
+		hash_table->the_array[p].data = x;
+	}
+	else {  //if found
+		hash_table->the_array[p].data.expo += x.expo;
+		hash_table->the_array[p].data.coeff *= x.coeff;
+	}
+}
+
+Polynomial operator*(const Polynomial &poly1, const Polynomial &poly2)
+{
+	Hash h(100);
+	Node* mul1 = poly1.head->next;
+	Node* product;
+	while (mul1) {
+		Node* mul2 = poly2.head->next;
+		while (mul2) {
+			product = new Node(mul1->coeff*mul2->coeff, mul1->expo + mul2->expo);
+			h.Insert(*product);  //only O(1)
+			mul2 = mul2->next;
+		}
+		mul1 = mul1->next;
+	}
+	Polynomial poly_product;
+	Node* p = poly_product.head;
+	for (size_t i = 0; i != h.hash_table->table_size; ++i) {  //insert nodes to polynomial (here we don't sort it,you can have a try)
+		if (h.hash_table->the_array[i].info == Legitimate) {
+			p->next = new Node(h.hash_table->the_array[i].data);
+			p = p->next;
+		}
+	}
+	p->next = nullptr;
+	return poly_product;
+}
+```
+
+
+

@@ -206,5 +206,48 @@ Polynomial operator*(const Polynomial &poly1, const Polynomial &poly2)
 }
 ```
 
+## Exercise 5.8
 
+The table size should be at least 60000 entries. Each entry holds about 8 bytes, so 480000 bytes in total.
+
+## Exercise 5.9
+
+**a. **True.
+
+**b. **False, because it is possible that it just hashes to the same value as some other word in the dictionary.
+
+**c. **300007 / 8 = 37501.
+
+**d. **30000 words in a table of 300007, there is 10% chance that a word that is not in the dictionary hashes to a location with value 1.
+
+**e. **Yes.
+
+## Exercise 5.11
+
+Actually, if we don't `% table_size` in hash function, we don't need to compare the strings character by character after we get a match of hash values.
+
+```c++
+size_t HashValue(string str)   
+{
+	size_t hash_value = 0;
+	for(const auto& i : str) {
+		hash_value = (hash_value << 5) + i; 
+	}	
+	return hash_value;   //not to `% table_size`
+}
+
+size_t StringMatching(string source,string target)
+{
+	size_t s_len = source.size();
+	size_t t_len = target.size();
+	size_t t_hash_value = HashValue(target);
+	for(size_t i = 0;i + t_len <= s_len;++i) {
+		string sub_str = source.substr(i,t_len);
+		if(HashValue(sub_str) == t_hash_value) {
+			return i;
+		}
+	}
+	return s_len;   //if fail to match, return the length of string source.
+}
+```
 

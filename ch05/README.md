@@ -261,4 +261,4 @@ size_t StringMatching(string source,string target)
 
 ## Exercise 5.14
 
-![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex5_14_c.png?raw=true)
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex5_14.png?raw=true)

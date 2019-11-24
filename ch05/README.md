@@ -212,15 +212,15 @@ The table size should be at least 60000 entries. Each entry holds about 8 bytes,
 
 ## Exercise 5.9
 
-**a. **True.
+**a.** True.
 
-**b. **False, because it is possible that it just hashes to the same value as some other word in the dictionary.
+**b.** False, because it is possible that it just hashes to the same value as some other word in the dictionary.
 
-**c. **300007 / 8 = 37501.
+**c.** 300007 / 8 = 37501.
 
-**d. **30000 words in a table of 300007, there is 10% chance that a word that is not in the dictionary hashes to a location with value 1.
+**d.** 30000 words in a table of 300007, there is 10% chance that a word that is not in the dictionary hashes to a location with value 1.
 
-**e. **Yes.
+**e.** Yes.
 
 ## Exercise 5.11
 
@@ -250,4 +250,8 @@ size_t StringMatching(string source,string target)
 	return s_len;   //if fail to match, return the length of string source.
 }
 ```
+
+## Exercise 5.12
+
+[hash_table.h]( https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch05/ex5_12_hash_open.h ) [hash_table.cpp]( https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch05/ex5_12_hash_open.cpp) [main.cpp]( https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch05/ex5_12_main.cpp) 
 

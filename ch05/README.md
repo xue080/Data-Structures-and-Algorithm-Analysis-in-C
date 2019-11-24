@@ -255,3 +255,10 @@ size_t StringMatching(string source,string target)
 
 [hash_table.h]( https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch05/ex5_12_hash_open.h ) [hash_table.cpp]( https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch05/ex5_12_hash_open.cpp) [main.cpp]( https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch05/ex5_12_main.cpp) 
 
+## Exercise 5.13
+
+[hash_table.h](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch05/ex5_13_hash_open.h) [hash_table.cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch05/ex5_13_hash_open.cpp) [main.cpp](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch05/ex5_13_main.cpp)
+
+## Exercise 5.14
+
+![](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/Images/ex5_14_c.png?raw=true)

@@ -49,7 +49,7 @@ int main()
 		else {
 			for (int i = k - 2; i >= 0; --i) {
 				if (arr[i] >= num) {
-					for (int j = i + 2; j < k; ++j) {         //replace
+					for(int j = k - 1;j != i + 1;--j) {
 						arr[j] = arr[j - 1];
 					}
 					arr[i + 1] = num;

@@ -1,9 +1,12 @@
-# Solutions to Exercises
+# Solutions to Problems
 ## Notes
-* Use IDE : `Visual Studio 2017 Community` / text editor : `Sublime Text 3`.
-* Solutions to mathematical exercises are `omitted`(Because formulas are hard to write down here).
-* I would like to know about `errors in my answers`
-* May `update slowly`
+* Use IDE / text editor :
+  * Visual Studio (Windows)
+  * Sublime Text (Windows)
+  * CLion (Linux)
+* Not include solutions to arithmetical problems (formulas are hard to write down here for me).
+* If you find something incorrect, please [Submit issue](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/issues/new).
+* May update slowly.
 ## Contents
 * [Chapter 1: Introduction](https://github.com/seineo/Solutions-for-Data-Structures-and-Algorithm-Analysis-in-C-2th-exercises/blob/master/ch01/README.md)
 * [Chapter 2: Algorithm Analysis](https://github.com/seineo/Data-Structures-and-Algorithm-Analysis-in-C/blob/master/ch02/README.md)

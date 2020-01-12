@@ -41,23 +41,23 @@ int main() {
         cout << error.what() << endl;
     }
 
-    pq2.DecreaseKey(2,10);
+    pq2.DecreaseKey(2, 10);
     cout << "pq2 FindMin : " << pq2.FindMin() << endl;
-    pq2.IncreaseKey(1,20);
+    pq2.IncreaseKey(1, 20);
     cout << "pq2 FindMin : " << pq2.FindMin() << endl;
     pq2.Delete(3);
-    while(!pq2.IsEmpty()) {
+    while (!pq2.IsEmpty()) {
         cout << "pq2 DeleteMin : " << pq2.DeleteMin() << endl;
     }
 
     PriorityQueue pq3(5);
     try {
         pq3.BuildHeap(6);
-    } catch (const logic_error& error) {
+    } catch (const logic_error &error) {
         cout << "pq3 : " << error.what() << endl;
     }
     pq3.BuildHeap(3);
-    while(!pq3.IsEmpty()) {
+    while (!pq3.IsEmpty()) {
         cout << "pq3 DeleteMin : " << pq3.DeleteMin() << endl;
     }
     return 0;

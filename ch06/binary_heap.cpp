@@ -15,11 +15,9 @@ PriorityQueue::PriorityQueue(int max_size) {
 }
 
 PriorityQueue::PriorityQueue(const PriorityQueue &pq) {
-    priority_queue = new HeapStruct(pq.priority_queue->capacity,pq.priority_queue->size);
-    std::copy(pq.priority_queue->elems, pq.priority_queue->elems + pq.priority_queue->capacity + 1, priority_queue->elems);
-//    for(int i = 1;i != pq.priority_queue->capacity;++i) {
-//        priority_queue->elems[i] = pq.priority_queue->elems[i];
-//    }
+    priority_queue = new HeapStruct(pq.priority_queue->capacity, pq.priority_queue->size);
+    std::copy(pq.priority_queue->elems, pq.priority_queue->elems + pq.priority_queue->capacity + 1,
+              priority_queue->elems);
 }
 
 PriorityQueue &PriorityQueue::operator=(PriorityQueue pq) {
@@ -104,12 +102,12 @@ void PriorityQueue::IncreaseKey(int pos, int range) {
 }
 
 void PriorityQueue::Delete(int pos) {
-    DecreaseKey(pos,99999999);   //make the element minimum
+    DecreaseKey(pos, 99999999);   //make the element minimum
     DeleteMin();   //then delete it
 }
 
 void PriorityQueue::BuildHeap(int n) {
-    if(n > priority_queue->capacity) {
+    if (n > priority_queue->capacity) {
         throw std::logic_error("Size is too big");
     }
     for (int i = 1; i <= n; ++i) {

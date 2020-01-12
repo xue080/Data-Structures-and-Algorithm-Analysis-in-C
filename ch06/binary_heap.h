@@ -10,7 +10,7 @@
 #define MinData -99999999
 
 struct HeapStruct {
-    HeapStruct(int max_size,int cur_size = 0) : capacity(max_size), size(cur_size) {
+    HeapStruct(int max_size, int cur_size = 0) : capacity(max_size), size(cur_size) {
         elems = new Elemtype[max_size + 1]();
         elems[0] = MinData;   //elems[0] is a sentinel
     }

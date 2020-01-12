@@ -68,7 +68,6 @@ public:
 	void Delete(Elemtype);
 	Elemtype Retrieve(Position);
 	Position HashFunc(Elemtype, size_t);
-	void MakeEmpty();
 	void Rehash();
 	State GetPositionState(Position) const;
 

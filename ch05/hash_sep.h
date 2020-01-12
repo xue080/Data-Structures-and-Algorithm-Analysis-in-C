@@ -73,7 +73,6 @@ public:
 	void Insert(Elemtype);
 	Elemtype Retrieve(Position) const;
 	void Delete(Elemtype);
-	void MakeEmpty();
 	size_t HashFunc(Elemtype x, size_t size) const { return x % size; }  
 private:
 	HashTable hash_table;

@@ -26,11 +26,6 @@ Hash& Hash::operator=(Hash h)
 
 Hash::~Hash()
 {
-	MakeEmpty();
-}
-
-void Hash::MakeEmpty()
-{
 	if (hash_table != nullptr) {
 		delete hash_table;
 		hash_table = nullptr;

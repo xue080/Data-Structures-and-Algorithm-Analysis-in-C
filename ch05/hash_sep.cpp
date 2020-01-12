@@ -30,7 +30,10 @@ Hash& Hash::operator=(Hash ht)
 
 Hash::~Hash()
 {
-	MakeEmpty();
+	if (hash_table != nullptr) {
+		delete hash_table;
+		hash_table = nullptr;
+	}
 }
 
 Position Hash::Find(Elemtype x) const
@@ -77,13 +80,5 @@ void Hash::Delete(Elemtype x)
 		l->next = p->next;
 		delete p;
 		p = nullptr;
-	}
-}
-
-void Hash::MakeEmpty()
-{
-	if (hash_table != nullptr) {
-		delete hash_table;
-		hash_table = nullptr;
 	}
 }

@@ -7,7 +7,9 @@ void SplayTree::Copy(Tree to_copy, Tree& dest, Position parent)
 		dest = new SplayNode(parent, to_copy->data);
 		Copy(to_copy->left, dest->left, dest);
 		Copy(to_copy->right, dest->right, dest);
-	}
+	} else {
+        dest = nullptr;    //without this line, when to_copy is nullptr, dest is undefined
+    }
 }
 
 SplayTree::SplayTree(const SplayTree& t)

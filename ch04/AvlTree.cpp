@@ -25,7 +25,9 @@ void AvlTree::Copy(Tree to_copy, Tree& dest)
 		dest = new AvlNode(to_copy->data);
 		Copy(to_copy->left, dest->left);
 		Copy(to_copy->right, dest->right);
-	}
+	} else {
+        dest = nullptr;   //without this line, when to_copy is nullptr, dest is undefined
+    }
 }
 
 void AvlTree::MakeEmpty()

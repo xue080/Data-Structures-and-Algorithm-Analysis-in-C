@@ -52,6 +52,7 @@ int main() {
 //7 0 6
 
 //output :
+//pq Empty : true
 //pq FindMin : 1
 //pq DeleteMin : 1
 //pq DeleteMin : 2

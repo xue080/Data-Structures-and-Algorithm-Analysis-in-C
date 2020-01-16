@@ -68,7 +68,7 @@ Tree PriorityQueue::Merge1(Tree h1, Tree h2) {
 }
 
 Elemtype PriorityQueue::FindMin() const {
-    if (priority_queue == nullptr)
+    if (IsEmpty())
         throw std::logic_error("Priority queue is empty");
     return priority_queue->elem;
 }

@@ -2,7 +2,7 @@
 //Write a program to solve the selection problem. Let k = n/2. 
 //Draw a table showing the running time of your program for various values of n.
 
-#include<iostream>
+#include<iostream>         //cin>>"要输入的内容";cout<<"要输出的内容";标准的输入输出流头文件;标准的C++头文件
 #include<ctime>
 #include<fstream>
 #include<random>
